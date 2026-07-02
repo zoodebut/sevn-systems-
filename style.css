@@ -40,8 +40,9 @@ section{padding:100px 0}
 /* NAV */
 header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.75);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.06)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-.brand img{height:26px}
-.navlinks{display:flex;gap:30px}
+.brand{display:flex;align-items:center}
+.brand img,.brand svg{height:22px;width:auto;display:block}
+.navlinks{display:flex;gap:30px;align-items:center}
 .navlinks a{font-size:14px;font-weight:400;color:var(--ink);opacity:.82;transition:.2s}
 .navlinks a:hover,.navlinks a.active{opacity:1;color:var(--blue)}
 .navright{display:flex;align-items:center;gap:16px}
@@ -207,7 +208,7 @@ header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.75);backdr
 /* FOOTER */
 footer{background:var(--wash);padding:60px 0 36px;font-size:13px}
 .foot{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}
-.foot .brand img{height:24px;margin-bottom:16px}
+.foot .brand img,.foot .brand svg{height:20px;width:auto;margin-bottom:16px}
 .foot .desc{color:var(--grey);max-width:280px;line-height:1.6}
 .foot h5{font-size:12px;font-weight:600;color:var(--ink);margin-bottom:14px;text-transform:uppercase;letter-spacing:.04em}
 .foot a{display:block;color:var(--grey);margin-bottom:9px;transition:.2s}
@@ -223,6 +224,13 @@ footer{background:var(--wash);padding:60px 0 36px;font-size:13px}
   .navlinks{display:none}
   .menutog{display:block}
   .foot{grid-template-columns:1fr 1fr}
+  .navright{gap:8px}
+  .langswitch button{padding:6px 9px}
+  .navright .btn{padding:9px 14px;font-size:13.5px}
+}
+@media(max-width:520px){
+  .chatbubble{width:48px;height:48px;bottom:18px;right:18px}
+  .chatbubble svg{width:20px;height:20px}
 }
 @media(max-width:520px){
   .sysflow,.secgrid,.grid-4{grid-template-columns:1fr}
@@ -247,3 +255,114 @@ footer{background:var(--wash);padding:60px 0 36px;font-size:13px}
 .mega-foot span{font-size:13.5px;color:var(--grey)}
 .anchor{scroll-margin-top:90px}
 @media(max-width:900px){.mega{display:none!important}.hasmega{display:none}}
+
+/* ============================================================
+   TECH / INTERACTIVE LAYER
+   ============================================================ */
+
+/* Glow + grid backgrounds for dark sections (systems, final CTA) */
+.systems,.final .box{position:relative;overflow:hidden}
+.systems::before,.final .box::before{
+  content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:44px 44px;
+  mask-image:radial-gradient(ellipse 80% 60% at 50% 20%,#000 40%,transparent 100%);
+  pointer-events:none;
+}
+.systems::after,.final .box::after{
+  content:'';position:absolute;width:520px;height:520px;border-radius:50%;
+  background:radial-gradient(circle,rgba(31,139,255,.18) 0%,transparent 70%);
+  top:-220px;right:-140px;pointer-events:none;
+  animation:floatGlow 10s ease-in-out infinite;
+}
+@keyframes floatGlow{0%,100%{transform:translate(0,0)}50%{transform:translate(-30px,30px)}}
+.systems > .wrap,.final .box > *{position:relative;z-index:1}
+
+/* Scroll reveal */
+[data-reveal]{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+[data-reveal].in{opacity:1;transform:translateY(0)}
+
+/* Counter-ready stat numbers get a little pop-in */
+.stat .num{transition:.3s}
+
+/* Card hover: lift + subtle blue glow ring instead of plain shadow */
+.card,.seccard,.post,.tcard{position:relative}
+.card:hover,.seccard:hover{box-shadow:0 16px 40px rgba(0,113,227,.14),0 4px 14px rgba(0,0,0,.06);border-color:rgba(0,113,227,.25)}
+.post:hover{box-shadow:0 16px 40px rgba(0,113,227,.14)}
+.card,.seccard{transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s,border-color .3s}
+
+/* Sysstep + mock rows already interactive — add pointer + micro-scale to buttons */
+.btn{position:relative;overflow:hidden}
+.btn:active{transform:scale(.97)}
+.seccard .star,.badge-excl{box-shadow:0 2px 8px rgba(180,83,10,.15)}
+
+/* Exclusivity / featured badge (reusable on case studies & sector cards) */
+.badge-excl{position:absolute;top:18px;right:18px;font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--blue);color:#fff;padding:5px 11px;border-radius:980px;display:flex;align-items:center;gap:5px;z-index:2}
+
+/* Case study result chip (used on individual case pages + index cards) */
+.result-chip{display:inline-flex;align-items:baseline;gap:6px;background:var(--wash-blue);color:var(--blue-deep);padding:8px 14px;border-radius:12px;font-weight:700;font-size:15px}
+.result-chip .n{font-size:20px;font-weight:800;letter-spacing:-.02em}
+
+/* Floating chat bubble (bottom-right, all pages) */
+.chatbubble{position:fixed;bottom:26px;right:26px;z-index:300;width:56px;height:56px;border-radius:50%;background:var(--blue);display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,113,227,.35);cursor:pointer;transition:.25s;border:none}
+.chatbubble:hover{transform:scale(1.08);background:var(--blue-deep)}
+.chatbubble svg{width:24px;height:24px}
+.chatbubble .ping{position:absolute;inset:0;border-radius:50%;background:var(--blue);opacity:.55;animation:ping 2.6s cubic-bezier(0,0,.2,1) infinite}
+@keyframes ping{0%{transform:scale(1);opacity:.5}75%,100%{transform:scale(1.7);opacity:0}}
+
+/* Lang switch (FR / EN) */
+.langswitch{display:flex;align-items:center;background:var(--wash-2);border-radius:980px;padding:3px;font-size:12.5px;font-weight:600}
+.langswitch button{border:none;background:transparent;color:var(--grey);padding:6px 12px;border-radius:980px;cursor:pointer;font-family:inherit;font-size:inherit;font-weight:inherit;transition:.2s}
+.langswitch button.active{background:#fff;color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.08)}
+
+/* Sector / case card now clickable block with arrow affordance */
+.seccard{cursor:pointer}
+.seccard .go{position:absolute;bottom:20px;right:20px;font-size:14px;color:var(--blue);opacity:0;transform:translateX(-4px);transition:.25s}
+.seccard:hover .go{opacity:1;transform:translateX(0)}
+
+@media(prefers-reduced-motion:reduce){
+  [data-reveal]{opacity:1;transform:none;transition:none}
+  .systems::after,.final .box::after,.chatbubble .ping{animation:none}
+}
+
+/* ============================================================
+   CASE STUDIES — index grid + individual detail page
+   ============================================================ */
+.breadcrumb{font-size:13.5px;color:var(--grey);margin-bottom:16px}
+.breadcrumb a{color:var(--grey);transition:.2s}
+.breadcrumb a:hover{color:var(--blue)}
+
+.casegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.casecard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;transition:.3s cubic-bezier(.16,1,.3,1)}
+.casecard:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,113,227,.14);border-color:rgba(0,113,227,.25)}
+.casecard .cctop{background:linear-gradient(150deg,var(--wash-blue),var(--wash));padding:34px 26px 26px;position:relative}
+.casecard .cctop .e{font-size:34px;margin-bottom:10px}
+.casecard .sector{font-size:12px;font-weight:700;color:var(--blue-deep);text-transform:uppercase;letter-spacing:.04em}
+.casecard .zone{font-size:12.5px;color:var(--grey);margin-top:2px}
+.casecard .ccbody{padding:22px 26px 26px;display:flex;flex-direction:column;flex:1}
+.casecard h3{font-size:18px;margin-bottom:14px;line-height:1.3}
+.casecard .bignum{font-size:34px;font-weight:800;color:var(--blue);letter-spacing:-.02em;line-height:1}
+.casecard .bignum .l{display:block;font-size:12.5px;font-weight:500;color:var(--grey);margin-top:4px;letter-spacing:0}
+.casecard .readmore{margin-top:20px;display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:var(--blue)}
+.casecard:hover .readmore{gap:10px}
+.casecard .readmore{transition:gap .25s}
+
+/* Detail page hero */
+.case-hero{background:var(--wash);padding:56px 0 44px}
+.case-hero .tag-row{display:flex;gap:10px;margin-bottom:18px}
+.case-hero .tag-row span{font-size:12.5px;font-weight:700;color:var(--blue-deep);background:var(--wash-blue);padding:6px 13px;border-radius:980px;text-transform:uppercase;letter-spacing:.03em}
+.case-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin:34px 0}
+.case-stats .cs{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px}
+.case-stats .cs .n{font-size:clamp(28px,3.2vw,38px);font-weight:800;color:var(--blue);letter-spacing:-.02em;line-height:1}
+.case-stats .cs .l{font-size:13.5px;color:var(--grey);margin-top:8px}
+.case-quote{background:var(--ink);color:#fff;border-radius:var(--r);padding:40px;margin:44px 0}
+.case-quote p{font-size:21px;font-weight:500;letter-spacing:-.01em;line-height:1.5;margin-bottom:20px;color:#fff}
+.case-quote .by{display:flex;align-items:center;gap:12px}
+.case-quote .by .av{width:42px;height:42px;border-radius:50%;background:var(--blue);display:grid;place-items:center;font-weight:700;font-size:14px;flex-shrink:0}
+.case-quote .by b{font-size:14.5px;display:block}
+.case-quote .by small{font-size:13px;color:var(--grey-2)}
+.case-body h2{font-size:24px;margin:36px 0 12px}
+.case-body p{font-size:16.5px;color:#333;line-height:1.7;margin-bottom:16px}
+@media(max-width:900px){
+  .casegrid{grid-template-columns:1fr}
+}
