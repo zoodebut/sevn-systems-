@@ -1,45 +1,48 @@
-# Sevn Systems — site vitrine
+# Sevn Systems — site web
 
-Site d'une page, bilingue FR/EN, hébergé sur Railway.
+Site multi-pages, en français, hébergé sur Railway.
 
-## 📂 Les fichiers (et ce que tu touches ou pas)
+## 📂 Structure
 
-| Fichier | C'est quoi | Tu y touches ?|
-|---|---|---|
-| **index.html** | TOUT le site : design, textes, formulaire | ✅ OUI — c'est le seul fichier à modifier |
-| package.json | Dit à Railway comment lancer le site | ❌ NON — ne jamais toucher |
-| .gitignore | Ignore les fichiers techniques | ❌ NON |
-| README.md | Ce fichier | — |
+| Fichier / dossier | Page |
+|---|---|
+| **index.html** | Accueil |
+| **methode.html** | Notre méthode (les 7 systèmes) |
+| **secteurs.html** | Secteurs |
+| **cas-clients.html** | Cas clients |
+| **pourquoi.html** | Pourquoi nous + offre + FAQ |
+| **contact.html** | Devis / contact |
+| **blog.html** | Liste des articles |
+| **blog/** | Les articles de blog |
+| **assets/style.css** | Le design de TOUT le site (une seule feuille) |
+| **assets/*.svg** | Logos et favicon |
+| package.json, .gitignore | Technique — ne pas toucher |
 
-👉 **Règle simple : pour changer le site, tu modifies UNIQUEMENT `index.html`. Le reste, tu n'y touches jamais.**
+👉 **Le design de tout le site est dans `assets/style.css`.** Une modif de couleur ou d'espacement là-dedans s'applique à toutes les pages d'un coup.
 
-## 🚀 Mettre en ligne (première fois)
+## ✏️ Modifs fréquentes
 
-1. Créer un repo GitHub, y déposer ces 4 fichiers
-2. Sur Railway : New Project → Deploy from GitHub repo → choisir ce repo
-3. Railway détecte `package.json` et lance tout seul
-4. Une URL Railway est générée → ton site est en ligne
+- **Chiffres de la page d'accueil** : dans `index.html`, cherche `100+` (commentaire « Remplace ces chiffres »).
+- **Cas clients** : dans `cas-clients.html`, cherche le commentaire « REMPLACE ces cas » — mets tes vrais résultats.
+- **Articles de blog** : ajoute un fichier dans `blog/` en copiant un article existant, puis ajoute une carte dans `blog.html`.
+- **Email de contact** : cherche `hello@sevnsystems.com`.
 
-## 🔄 Faire une modif
+## 🔌 Brancher le formulaire au CRM
 
-1. Modifier `index.html`
-2. `git add . && git commit -m "ma modif" && git push`
-3. Railway redéploie automatiquement en ~1 min
+Dans `index.html` ET `contact.html`, en bas, il y a :
+```js
+const CRM_ENDPOINT = "";
+const CRM_API_KEY = "";
+```
+Une fois le CRM déployé, mets l'URL du CRM (`https://.../api/leads`) et ta clé API.
+Les leads du formulaire arriveront alors directement dans le CRM.
 
-## 🌐 Brancher le domaine sevnsystems.com
+## 🚀 Déploiement Railway
 
-Dans Railway → Settings → Domains → Custom Domain → `sevnsystems.com`
-Railway te donne une valeur à copier dans les DNS OVH (CNAME).
+Nouveau repo GitHub → New Project → Deploy from GitHub repo → Generate Domain (port 8080).
+Puis brancher le domaine `sevnsystems.com` (Settings → Domains).
 
-## ✏️ Modifs les plus fréquentes (repères dans index.html)
+## 🌍 Version anglaise
 
-- **Nombre de clients** : chercher `[XXX]` → remplacer par ton chiffre
-- **Témoignages** : chercher `tcard` → dupliquer un bloc
-- **Email de contact** : chercher `hello@sevnsystems.com`
-- **Le formulaire** : chercher `formcard` (voir note ci-dessous)
-
-## ⚠️ Le formulaire
-
-Le formulaire est visuel : il ne renvoie encore les données nulle part.
-Pour recevoir les prospects, il faut le brancher à Tally, Formspree ou Calendly.
-(À faire dans un second temps.)
+Le site est en français (marché FR + SEO). Pour le marché US, on ajoutera
+des versions anglaises des pages le moment venu.

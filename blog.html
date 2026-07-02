@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog &amp; Ressources — Génération de leads par secteur | Sevn Systems</title>
+<meta name="description" content="Guides pratiques et stratégies pour générer plus de leads qualifiés dans votre secteur : dentaire, esthétique, pompe à chaleur, solaire, rénovation, immobilier.">
+<link rel="icon" href="assets/symbole.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .filters{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:44px}
+  .filters button{border:1px solid var(--line);background:#fff;color:var(--ink);padding:9px 18px;border-radius:980px;font-family:inherit;font-size:14px;font-weight:500;cursor:pointer;transition:.2s}
+  .filters button:hover{border-color:var(--blue);color:var(--blue)}
+  .filters button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .post.hide{display:none}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="brand"><img src="assets/logo-clair.svg" alt="Sevn Systems"></a>
+    <nav class="navlinks">
+      <a href="methode.html">Méthode</a>
+      <div class="hasmega">
+        <a href="secteurs.html" class="megatrigger">Secteurs <span class="car">▼</span></a>
+        <div class="mega"><div class="mega-inner">
+          <div class="mega-col"><h5>🩺 Santé &amp; Médical</h5>
+            <a href="secteurs.html#dentaire">Dentaire<small>Implants, ortho, esthétique</small></a>
+            <a href="secteurs.html#audio">Audioprothèse<small>Appareils, bilans auditifs</small></a>
+          </div>
+          <div class="mega-col"><h5>✨ Esthétique &amp; Beauté</h5>
+            <a href="secteurs.html#esthetique">Médecine esthétique<small>Injections, laser</small></a>
+            <a href="secteurs.html#chirurgie">Chirurgie esthétique<small>Interventions, greffe</small></a>
+            <a href="secteurs.html#minceur">Beauté &amp; minceur<small>Cryolipolyse, soins corps</small></a>
+          </div>
+          <div class="mega-col"><h5>⚡ Rénovation &amp; Énergie</h5>
+            <a href="secteurs.html#pac">Pompe à chaleur<small>PAC air/eau, air/air</small></a>
+            <a href="secteurs.html#solaire">Panneaux solaires<small>Photovoltaïque</small></a>
+            <a href="secteurs.html#renovation">Rénovation &amp; isolation<small>Ampleur, MaPrimeRénov'</small></a>
+          </div>
+          <div class="mega-col"><h5>🏢 Autres secteurs</h5>
+            <a href="secteurs.html#immobilier">Immobilier<small>Achat, vente, mandats</small></a>
+            <a href="secteurs.html#patrimoine">Patrimoine &amp; finance<small>SCPI, mutuelle senior</small></a>
+            <a href="secteurs.html#formation">Formation &amp; écoles<small>Bachelor, MBA, CPF</small></a>
+          </div>
+        </div>
+        <div class="mega-foot"><div class="fin"><span>Votre secteur n'est pas listé ?</span><a href="contact.html" class="btn ghost" style="padding:8px 16px">Parlons-en →</a></div></div>
+        </div>
+      </div>
+      <a href="cas-clients.html">Cas clients</a>
+      <a href="pourquoi.html">Pourquoi nous</a>
+      <a href="blog.html">Blog</a>
+    </nav>
+    <div class="navright"><a href="contact.html" class="btn">Devis gratuit</a>
+      <button class="menutog" onclick="var n=document.querySelector('.navlinks');n.style.display=n.style.display==='flex'?'none':'flex'">☰</button></div>
+  </div>
+</header>
+
+<div class="pagehead">
+  <div class="wrap"><span class="kick">Blog &amp; Ressources</span>
+    <h1 class="h2">Générer plus de leads dans votre secteur</h1>
+    <p class="lead">Guides pratiques, stratégies d'acquisition et actualités, secteur par secteur. De nouveaux articles chaque mois.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="filters">
+      <button class="on" data-f="all">Tous les articles</button>
+      <button data-f="dentaire">Dentaire</button>
+      <button data-f="esthetique">Esthétique</button>
+      <button data-f="energie">Rénovation &amp; Énergie</button>
+      <button data-f="immobilier">Immobilier</button>
+      <button data-f="general">Général</button>
+    </div>
+
+    <div class="bloggrid" id="grid">
+      <!-- DENTAIRE -->
+      <a class="post" data-cat="dentaire" href="blog/leads-dentaires-2026.html">
+        <div class="thumb">🦷</div>
+        <div class="body"><span class="cat">Dentaire</span>
+          <h3>Comment générer des leads patients dentaires qualifiés en 2026</h3>
+          <p class="meta">4 mars 2026 · 9 min</p>
+          <p class="exc">Implants, orthodontie, esthétique : le guide complet pour attirer des patients à forte valeur.</p>
+        </div>
+      </a>
+      <a class="post" data-cat="dentaire" href="blog/implants-prix-remboursement-2026.html">
+        <div class="thumb g4">💶</div>
+        <div class="body"><span class="cat">Dentaire · Actualité</span>
+          <h3>Prix et remboursement des implants dentaires en 2026 : le point complet</h3>
+          <p class="meta">20 juin 2026 · 8 min</p>
+          <p class="exc">Tarifs réels, remboursement Sécu, rôle de la mutuelle et avis de la HAS. Les données à jour.</p>
+        </div>
+      </a>
+      <a class="post" data-cat="dentaire" href="blog/orthodontie-esthetique-dentaire.html">
+        <div class="thumb g2">😁</div>
+        <div class="body"><span class="cat">Dentaire</span>
+          <h3>Orthodontie et esthétique dentaire : quels patients cibler en ligne</h3>
+          <p class="meta">11 février 2026 · 7 min</p>
+          <p class="exc">Aligneurs, facettes, blanchiment : comment attirer une clientèle esthétique prête à investir.</p>
+        </div>
+      </a>
+
+      <!-- ESTHETIQUE -->
+      <a class="post" data-cat="esthetique" href="blog/leads-medecine-esthetique-2026.html">
+        <div class="thumb g2">💆</div>
+        <div class="body"><span class="cat">Esthétique</span>
+          <h3>Générer des leads en médecine esthétique en 2026 : le guide</h3>
+          <p class="meta">6 mars 2026 · 9 min</p>
+          <p class="exc">Un marché de 3 milliards d'euros porté par le non-invasif et les réseaux sociaux. Comment en profiter.</p>
+        </div>
+      </a>
+      <a class="post" data-cat="esthetique" href="blog/prix-injections-esthetique-2026.html">
+        <div class="thumb g4">💉</div>
+        <div class="body"><span class="cat">Esthétique · Actualité</span>
+          <h3>Prix des injections esthétiques en 2026 : botox et acide hyaluronique</h3>
+          <p class="meta">18 juin 2026 · 7 min</p>
+          <p class="exc">Tarifs à jour, TVA, absence de remboursement : ce que vos patients veulent savoir avant de venir.</p>
+        </div>
+      </a>
+      <a class="post" data-cat="esthetique" href="blog/instagram-tiktok-esthetique.html">
+        <div class="thumb g3">📱</div>
+        <div class="body"><span class="cat">Esthétique</span>
+          <h3>Instagram et TikTok pour attirer des patients en esthétique</h3>
+          <p class="meta">24 janvier 2026 · 6 min</p>
+          <p class="exc">Où naît la demande en esthétique, et comment la transformer en rendez-vous.</p>
+        </div>
+      </a>
+
+      <!-- RENOVATION & ENERGIE -->
+      <a class="post" data-cat="energie" href="blog/leads-pompe-a-chaleur-2026.html">
+        <div class="thumb g3">🔥</div>
+        <div class="body"><span class="cat">Pompe à chaleur</span>
+          <h3>Générer des leads pompe à chaleur qualifiés en 2026</h3>
+          <p class="meta">5 mars 2026 · 9 min</p>
+          <p class="exc">Cibler les propriétaires éligibles, maîtriser les règles MaPrimeRénov' et convertir plus vite.</p>
+        </div>
+      </a>
+      <a class="post" data-cat="energie" href="blog/maprimerenov-2026-actualite.html">
+        <div class="thumb g4">🏛️</div>
+        <div class="body"><span class="cat">Rénovation &amp; Énergie · Actualité</span>
+          <h3>MaPrimeRénov' 2026 : ce qui a changé et ce que ça change pour vos leads</h3>
+          <p class="meta">22 juin 2026 · 8 min</p>
+          <p class="exc">Réouverture du guichet, travaux exclus, montants PAC, cumuls : le point à jour pour bien cibler.</p>
+        </div>
+      </a>
+      <a class="post" data-cat="energie" href="blog/leads-panneaux-solaires-2026.html">
+        <div class="thumb">☀️</div>
+        <div class="body"><span class="cat">Panneaux solaires</span>
+          <h3>Générer des leads panneaux solaires exclusifs en 2026</h3>
+          <p class="meta">27 février 2026 · 8 min</p>
+          <p class="exc">Dans un secteur miné par le lead partagé, l'exclusivité fait toute la différence.</p>
+        </div>
+      </a>
+      <a class="post" data-cat="energie" href="blog/renovation-ampleur-2026.html">
+        <div class="thumb g2">🏠</div>
+        <div class="body"><span class="cat">Rénovation</span>
+          <h3>Rénovation d'ampleur : capter des projets à forte valeur en 2026</h3>
+          <p class="meta">3 février 2026 · 8 min</p>
+          <p class="exc">Les plus gros chantiers du secteur : comment les cibler et les convertir.</p>
+        </div>
+      </a>
+
+      <!-- IMMOBILIER -->
+      <a class="post" data-cat="immobilier" href="blog/leads-immobiliers-2026.html">
+        <div class="thumb">🔑</div>
+        <div class="body"><span class="cat">Immobilier</span>
+          <h3>Générer des leads immobiliers exclusifs en 2026 : le guide</h3>
+          <p class="meta">2 mars 2026 · 9 min</p>
+          <p class="exc">Capter des vendeurs plutôt que courir après les acheteurs : la clé d'un portefeuille de mandats.</p>
+        </div>
+      </a>
+      <a class="post" data-cat="immobilier" href="blog/marche-immobilier-2026-actualite.html">
+        <div class="thumb g4">📈</div>
+        <div class="body"><span class="cat">Immobilier · Actualité</span>
+          <h3>Marché immobilier 2026 : taux, prix et ce que ça change pour capter des clients</h3>
+          <p class="meta">19 juin 2026 · 7 min</p>
+          <p class="exc">Taux, prix, primo-accédants : l'état du marché et ce qu'il faut en retenir pour votre acquisition.</p>
+        </div>
+      </a>
+      <a class="post" data-cat="immobilier" href="blog/capter-mandats-exclusifs.html">
+        <div class="thumb g2">📝</div>
+        <div class="body"><span class="cat">Immobilier</span>
+          <h3>Comment capter des mandats de vente exclusifs grâce au digital</h3>
+          <p class="meta">28 janvier 2026 · 7 min</p>
+          <p class="exc">L'estimation comme aimant à vendeurs, et la méthode pour transformer en mandats.</p>
+        </div>
+      </a>
+
+      <!-- GENERAL -->
+      <a class="post" data-cat="general" href="blog/leads-exclusifs-vs-partages.html">
+        <div class="thumb">🔒</div>
+        <div class="body"><span class="cat">Stratégie</span>
+          <h3>Leads exclusifs ou leads partagés : ce que ça change vraiment</h3>
+          <p class="meta">12 mars 2026 · 6 min</p>
+          <p class="exc">Payer pour un lead revendu à cinq concurrents, c'est payer une course déjà perdue.</p>
+        </div>
+      </a>
+      <a class="post" data-cat="general" href="blog/cout-par-lead.html">
+        <div class="thumb g2">💶</div>
+        <div class="body"><span class="cat">Chiffres</span>
+          <h3>Combien coûte un lead en 2026 (et pourquoi ce n'est pas la bonne question)</h3>
+          <p class="meta">28 janvier 2026 · 7 min</p>
+          <p class="exc">C'est le coût par client signé, pas le prix du lead, qui décide de votre rentabilité.</p>
+        </div>
+      </a>
+      <a class="post" data-cat="general" href="blog/rappeler-lead-rapidement.html">
+        <div class="thumb g3">⚡</div>
+        <div class="body"><span class="cat">Conversion</span>
+          <h3>Pourquoi rappeler un lead en moins de 5 minutes change tout</h3>
+          <p class="meta">9 décembre 2025 · 5 min</p>
+          <p class="exc">La vitesse de rappel est le facteur le plus sous-estimé de la conversion.</p>
+        </div>
+      </a>
+    </div>
+
+    <p class="center mt-l" style="color:var(--grey-2);font-size:14px">D'autres secteurs arrivent : esthétique, pompe à chaleur, solaire, rénovation, immobilier, audioprothèse, patrimoine.</p>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap"><div class="box">
+    <span class="kick">Passez à l'action</span>
+    <h2 class="h2">Assez de théorie ?</h2>
+    <p>Voyons ensemble comment générer des leads exclusifs dans votre secteur.</p>
+    <a href="contact.html" class="btn white lg">Obtenir un devis gratuit →</a>
+  </div></div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div class="brand"><img src="assets/logo-clair.svg" alt="Sevn Systems"><p class="desc">Sept systèmes d'acquisition pour livrer des leads exclusifs aux professionnels, directement dans leur CRM.</p></div>
+    <div><h5>Produit</h5><a href="methode.html">La méthode</a><a href="secteurs.html">Secteurs</a><a href="cas-clients.html">Cas clients</a><a href="pourquoi.html">Pourquoi nous</a></div>
+    <div><h5>Ressources</h5><a href="blog.html">Blog</a><a href="contact.html">Devis gratuit</a><a href="mailto:hello@sevnsystems.com">hello@sevnsystems.com</a></div>
+    <div><h5>Légal</h5><a href="#">Mentions légales</a><a href="#">Confidentialité</a><a href="#">CGV</a></div>
+  </div>
+  <div class="foot-bot"><span>© 2026 Sevn Systems</span><span>sevnsystems.com</span></div>
+</footer>
+
+<script>
+document.querySelectorAll('.filters button').forEach(function(b){
+  b.addEventListener('click', function(){
+    document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    var f=b.getAttribute('data-f');
+    document.querySelectorAll('.post').forEach(function(p){
+      p.classList.toggle('hide', f!=='all' && p.getAttribute('data-cat')!==f);
+    });
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Devis gratuit — Parlons de votre projet | Sevn Systems</title>
+<meta name="description" content="Obtenez un devis gratuit et sur-mesure pour la génération de leads exclusifs dans votre secteur. Réponse sous 24h.">
+<link rel="icon" href="assets/symbole.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="brand"><img src="assets/logo-clair.svg" alt="Sevn Systems"></a>
+    <nav class="navlinks">
+      <a href="methode.html">Méthode</a>
+      <div class="hasmega">
+        <a href="secteurs.html" class="megatrigger">Secteurs <span class="car">▼</span></a>
+        <div class="mega"><div class="mega-inner">
+          <div class="mega-col"><h5>🩺 Santé &amp; Médical</h5>
+            <a href="secteurs.html#dentaire">Dentaire<small>Implants, ortho, esthétique</small></a>
+            <a href="secteurs.html#audio">Audioprothèse<small>Appareils, bilans auditifs</small></a>
+          </div>
+          <div class="mega-col"><h5>✨ Esthétique &amp; Beauté</h5>
+            <a href="secteurs.html#esthetique">Médecine esthétique<small>Injections, laser</small></a>
+            <a href="secteurs.html#chirurgie">Chirurgie esthétique<small>Interventions, greffe</small></a>
+            <a href="secteurs.html#minceur">Beauté &amp; minceur<small>Cryolipolyse, soins corps</small></a>
+          </div>
+          <div class="mega-col"><h5>⚡ Rénovation &amp; Énergie</h5>
+            <a href="secteurs.html#pac">Pompe à chaleur<small>PAC air/eau, air/air</small></a>
+            <a href="secteurs.html#solaire">Panneaux solaires<small>Photovoltaïque</small></a>
+            <a href="secteurs.html#renovation">Rénovation &amp; isolation<small>Ampleur, MaPrimeRénov'</small></a>
+          </div>
+          <div class="mega-col"><h5>🏢 Autres secteurs</h5>
+            <a href="secteurs.html#immobilier">Immobilier<small>Achat, vente, mandats</small></a>
+            <a href="secteurs.html#patrimoine">Patrimoine &amp; finance<small>SCPI, mutuelle senior</small></a>
+            <a href="secteurs.html#formation">Formation &amp; écoles<small>Bachelor, MBA, CPF</small></a>
+          </div>
+        </div>
+        <div class="mega-foot"><div class="fin"><span>Votre secteur n'est pas listé ?</span><a href="contact.html" class="btn ghost" style="padding:8px 16px">Parlons-en →</a></div></div>
+        </div>
+      </div>
+      <a href="cas-clients.html">Cas clients</a>
+      <a href="pourquoi.html">Pourquoi nous</a>
+      <a href="blog.html">Blog</a>
+    </nav>
+    <div class="navright"><a href="contact.html" class="btn">Devis gratuit</a>
+      <button class="menutog" onclick="var n=document.querySelector('.navlinks');n.style.display=n.style.display==='flex'?'none':'flex'">☰</button></div>
+  </div>
+</header>
+
+<section class="hero" style="padding-top:60px">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="pill"><span class="d"></span>Réponse sous 24h ouvrées</span>
+      <h1 class="display" style="font-size:clamp(34px,5vw,56px)">Parlons de votre projet.</h1>
+      <p class="lead">Dites-nous votre secteur et votre zone. On vérifie si elle est libre, on comprend vos besoins, et on vous construit un devis sur-mesure — sans engagement.</p>
+      <ul class="spot" style="margin-top:8px"><div style="display:flex;flex-direction:column;gap:14px">
+        <li><span class="ck">✓</span><span>Un échange gratuit avec un expert de votre secteur</span></li>
+        <li><span class="ck">✓</span><span>Vérification de la disponibilité de votre zone</span></li>
+        <li><span class="ck">✓</span><span>Un devis clair, adapté à vos besoins réels</span></li>
+      </div></ul>
+    </div>
+
+    <div class="formcard">
+      <h3>Obtenir mon devis gratuit</h3>
+      <p class="sub">Un expert vous rappelle sous 24h ouvrées.</p>
+      <form id="leadForm" onsubmit="return submitLead(event)">
+        <div class="field"><input name="nom" type="text" placeholder="Nom / entreprise" required></div>
+        <div class="field"><input name="email" type="email" placeholder="Email professionnel" required></div>
+        <div class="field"><input name="telephone" type="tel" placeholder="Téléphone" required></div>
+        <div class="field">
+          <select name="secteur" required>
+            <option value="">Votre secteur d'activité</option>
+            <option>Dentaire</option><option>Esthétique</option><option>Pompe à chaleur</option>
+            <option>Panneaux solaires</option><option>Rénovation</option><option>Immobilier</option>
+            <option>Audioprothèse</option><option>Patrimoine / Finance</option><option>Autre</option>
+          </select>
+        </div>
+        <div class="field"><input name="zone" type="text" placeholder="Votre ville / zone d'activité"></div>
+        <button class="btn" type="submit">Envoyer ma demande →</button>
+        <p class="fineprint" id="formMsg">Réponse sous 24h · Sans engagement · Données protégées (RGPD)</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div class="brand"><img src="assets/logo-clair.svg" alt="Sevn Systems"><p class="desc">Sept systèmes d'acquisition pour livrer des leads exclusifs aux professionnels, directement dans leur CRM.</p></div>
+    <div><h5>Produit</h5><a href="methode.html">La méthode</a><a href="secteurs.html">Secteurs</a><a href="cas-clients.html">Cas clients</a><a href="pourquoi.html">Pourquoi nous</a></div>
+    <div><h5>Ressources</h5><a href="blog.html">Blog</a><a href="contact.html">Devis gratuit</a><a href="mailto:hello@sevnsystems.com">hello@sevnsystems.com</a></div>
+    <div><h5>Légal</h5><a href="#">Mentions légales</a><a href="#">Confidentialité</a><a href="#">CGV</a></div>
+  </div>
+  <div class="foot-bot"><span>© 2026 Sevn Systems</span><span>sevnsystems.com</span></div>
+</footer>
+
+<script>
+/* ⚙️ Renseigne l'URL du CRM + la clé API après déploiement pour recevoir les leads. */
+const CRM_ENDPOINT = "";
+const CRM_API_KEY = "";
+async function submitLead(e){
+  e.preventDefault();
+  const form=e.target, msg=document.getElementById('formMsg');
+  const data=Object.fromEntries(new FormData(form).entries()); data.source='site';
+  if(CRM_ENDPOINT){ try{ await fetch(CRM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','x-api-key':CRM_API_KEY},body:JSON.stringify(data)});}catch(err){} }
+  form.style.display='none'; msg.style.display='block'; msg.style.color='var(--blue)'; msg.style.fontSize='15px';
+  msg.textContent='Merci ! Un expert vous rappelle sous 24h ouvrées.';
+  return false;
+}
+</script>
+</body>
+</html>

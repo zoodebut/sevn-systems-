@@ -1,11 +1,11 @@
 {
-  "name": "sevnsystems",
-  "version": "1.0.0",
-  "description": "Site vitrine Sevn Systems",
+  "name": "sevnsystems-site",
+  "version": "2.0.0",
+  "description": "Site Sevn Systems — multi-pages",
   "scripts": {
     "start": "serve . -l $PORT"
   },
   "dependencies": {
-    "serve": "^14.2.1"
+    "serve": "^14.2.6"
   }
 }

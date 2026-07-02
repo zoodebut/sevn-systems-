@@ -3,218 +3,54 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sevn Systems — Leads exclusifs, livrés dans votre CRM</title>
+<title>Sevn Systems — Leads exclusifs pour les pros, livrés dans votre CRM</title>
+<meta name="description" content="Agence française de génération de leads 100% exclusifs. Sept systèmes d'acquisition qui captent, qualifient et livrent vos leads directement dans votre CRM. Devis gratuit.">
+<link rel="icon" href="assets/symbole.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --blue:#0071E3;
-    --blue-bright:#2D8CFF;
-    --blue-deep:#0257B0;
-    --ink:#1D1D1F;
-    --grey:#6E6E73;
-    --grey-2:#86868B;
-    --line:#E8E8ED;
-    --wash:#F5F5F7;
-    --wash-blue:#F0F6FF;
-    --white:#FFFFFF;
-    --r:20px;
-    --shadow:0 4px 24px rgba(0,0,0,.06);
-    --shadow-lg:0 20px 60px rgba(0,0,0,.10);
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--ink);background:var(--white);line-height:1.5;-webkit-font-smoothing:antialiased;font-weight:400}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
-  a{color:inherit;text-decoration:none}
-  h1,h2,h3,h4{font-weight:600;letter-spacing:-.022em;line-height:1.06}
-  .blue{color:var(--blue)}
-  section{padding:120px 0}
-
-  .display{font-size:clamp(44px,7vw,88px);font-weight:600;letter-spacing:-.03em;line-height:1.03}
-  .h2{font-size:clamp(32px,4.6vw,54px);font-weight:600;letter-spacing:-.028em;line-height:1.07}
-  .lead{font-size:clamp(19px,2.2vw,24px);font-weight:400;color:var(--grey);letter-spacing:-.01em;line-height:1.4}
-  .kick{display:block;font-size:14px;font-weight:600;color:var(--blue);margin-bottom:16px}
-
-  /* NAV */
-  header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.05)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .logo{display:flex;align-items:center;gap:9px;font-weight:600;font-size:19px;letter-spacing:-.02em}
-  .logo .mark{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:var(--blue);color:#fff;font-weight:700;font-size:16px}
-  .logo b{font-weight:400;color:var(--grey)}
-  .navlinks{display:flex;gap:34px}
-  .navlinks a{font-size:14px;font-weight:400;color:var(--ink);opacity:.85;transition:.2s}
-  .navlinks a:hover{opacity:1;color:var(--blue)}
-  .navright{display:flex;align-items:center;gap:18px}
-  .lang{display:flex;gap:2px;font-size:13px;font-weight:500}
-  .lang button{border:none;background:none;padding:5px 9px;border-radius:7px;cursor:pointer;color:var(--grey);font-family:inherit;font-weight:500;transition:.2s}
-  .lang button.on{background:var(--ink);color:#fff}
-  .btn{display:inline-flex;align-items:center;gap:7px;background:var(--blue);color:#fff;padding:11px 21px;border-radius:980px;font-weight:500;font-size:14.5px;border:none;cursor:pointer;font-family:inherit;transition:.25s}
-  .btn:hover{background:var(--blue-deep)}
-  .btn.lg{padding:15px 30px;font-size:17px}
-  .btn.dark{background:var(--ink)}.btn.dark:hover{background:#000}
-  .menutog{display:none;background:none;border:none;font-size:22px;cursor:pointer}
-
-  /* HERO */
-  .hero{padding:80px 0 70px}
-  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
-  .pill{display:inline-flex;align-items:center;gap:8px;background:var(--wash-blue);color:var(--blue);font-size:13.5px;font-weight:500;padding:7px 14px;border-radius:980px;margin-bottom:26px}
-  .pill .d{width:6px;height:6px;border-radius:50%;background:var(--blue)}
-  .hero h1{max-width:14ch}
-  .hero h1 .fade{color:var(--grey-2)}
-  .hero .lead{margin:24px 0 34px;max-width:44ch}
-  .trust-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px}
-  .chip{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:500;color:var(--ink);background:var(--wash);padding:9px 15px;border-radius:980px}
-
-  .formcard{background:#fff;border:1px solid var(--line);border-radius:26px;padding:34px;box-shadow:var(--shadow-lg)}
-  .formcard h3{font-size:23px;font-weight:600;letter-spacing:-.02em;margin-bottom:6px}
-  .formcard p.sub{font-size:14.5px;color:var(--grey);margin-bottom:24px}
-  .field{margin-bottom:12px}
-  .field input,.field select{width:100%;padding:15px 16px;border:1px solid var(--line);border-radius:14px;font-family:inherit;font-size:15px;color:var(--ink);background:var(--white);transition:.2s;-webkit-appearance:none;appearance:none}
-  .field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%2386868B' d='M6 8L0 2l1.4-1.4L6 5.2 10.6.6 12 2z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;color:var(--grey)}
-  .field input:focus,.field select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(0,113,227,.12)}
-  .formcard .btn{width:100%;justify-content:center;margin-top:8px;padding:15px}
-  .formcard .fineprint{font-size:12px;color:var(--grey-2);text-align:center;margin-top:14px;line-height:1.5}
-
-  /* STATS */
-  .statbar{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--wash)}
-  .statbar .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:44px 28px}
-  .stat{text-align:center}
-  .stat .num{font-size:clamp(34px,4vw,52px);font-weight:600;letter-spacing:-.03em;color:var(--ink);line-height:1}
-  .stat .lab{font-size:14px;color:var(--grey);margin-top:10px;font-weight:400}
-
-  .shead{max-width:680px;margin:0 auto 64px;text-align:center}
-  .shead p{margin-top:20px}
-
-  /* 7 SYSTEMS */
-  .systems{background:var(--ink);color:#fff}
-  .systems .kick{color:var(--blue-bright)}
-  .systems .shead p{color:var(--grey-2)}
-  .sysflow{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);overflow:hidden}
-  .sysstep{background:#1D1D1F;padding:32px 26px;transition:.35s;position:relative;min-height:220px}
-  .sysstep:hover{background:#26262A}
-  .sysstep .idx{font-size:13px;font-weight:600;color:var(--blue-bright);margin-bottom:22px;letter-spacing:.02em}
-  .sysstep h3{font-size:21px;font-weight:600;margin-bottom:12px;letter-spacing:-.02em}
-  .sysstep p{font-size:14px;color:var(--grey-2);line-height:1.55}
-  .sysstep.hl{background:linear-gradient(160deg,#0071E3,#0257B0)}
-  .sysstep.hl:hover{background:linear-gradient(160deg,#0d7bf0,#0257B0)}
-  .sysstep.hl p{color:rgba(255,255,255,.85)}
-  .sysstep.hl .idx{color:#fff}
-  .sysstep .badge{position:absolute;top:26px;right:24px;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:rgba(255,255,255,.92);color:var(--blue-deep);padding:4px 9px;border-radius:6px}
-
-  /* CRM */
-  .spot{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-  .spot h2{margin-bottom:20px}
-  .spot .lead{margin-bottom:28px}
-  .spot ul{list-style:none;display:flex;flex-direction:column;gap:16px}
-  .spot li{display:flex;gap:13px;align-items:flex-start;font-size:16px;color:var(--ink)}
-  .spot li .ck{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-size:12px;margin-top:2px}
-  .mock{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-lg);overflow:hidden}
-  .mock .top{display:flex;align-items:center;gap:6px;padding:14px 16px;border-bottom:1px solid var(--line)}
-  .mock .top i{width:11px;height:11px;border-radius:50%}
-  .mock .top i:nth-child(1){background:#FF5F57}.mock .top i:nth-child(2){background:#FEBC2E}.mock .top i:nth-child(3){background:#28C840}
-  .mock .top span{margin-left:10px;font-size:12.5px;color:var(--grey-2)}
-  .mock .list{padding:16px}
-  .mrow{display:flex;align-items:center;justify-content:space-between;padding:14px;border-radius:12px;margin-bottom:8px;background:var(--wash);transition:.2s}
-  .mrow:hover{background:var(--wash-blue)}
-  .mrow .who{display:flex;align-items:center;gap:12px}
-  .mrow .av{width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-size:12.5px;font-weight:600}
-  .mrow .who b{font-size:14px;font-weight:500;display:block}
-  .mrow .who small{font-size:12px;color:var(--grey)}
-  .tag{font-size:11px;font-weight:600;padding:5px 11px;border-radius:980px;white-space:nowrap}
-  .tag.n{background:#E3F0FF;color:var(--blue-deep)}
-  .tag.h{background:#FFF0E6;color:#B4530A}
-  .tag.w{background:#E4F8ED;color:#0B7A43}
-
-  /* SECTORS */
-  .sectors{background:var(--wash)}
-  .secgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-  .seccard{background:#fff;border-radius:18px;padding:26px;transition:.3s;position:relative}
-  .seccard:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-  .seccard .e{font-size:30px;display:block;margin-bottom:16px}
-  .seccard h4{font-size:17px;font-weight:600;margin-bottom:5px;letter-spacing:-.01em}
-  .seccard .m{font-size:13px;color:var(--grey)}
-  .seccard .star{position:absolute;top:20px;right:20px;font-size:11px;font-weight:600;color:#B4530A;background:#FFF0E6;padding:3px 9px;border-radius:980px}
-
-  /* WHY */
-  .whygrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-  .why{padding:8px}
-  .why .ic{width:48px;height:48px;border-radius:12px;background:var(--wash-blue);display:grid;place-items:center;font-size:22px;margin-bottom:22px}
-  .why h3{font-size:20px;font-weight:600;margin-bottom:12px;letter-spacing:-.015em}
-  .why p{font-size:15.5px;color:var(--grey);line-height:1.5}
-  .why .kpi{margin-top:16px;font-size:14px;font-weight:600;color:var(--blue)}
-
-  /* TESTIMONIALS */
-  .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .tcard{background:var(--wash);border-radius:var(--r);padding:32px}
-  .tcard .stars{color:#FF9F0A;font-size:14px;letter-spacing:3px;margin-bottom:16px}
-  .tcard p{font-size:16px;color:var(--ink);line-height:1.55;margin-bottom:22px;letter-spacing:-.01em}
-  .tcard .by{display:flex;align-items:center;gap:12px}
-  .tcard .av{width:40px;height:40px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:600;font-size:14px}
-  .tcard .by b{font-size:14px;font-weight:600;display:block}
-  .tcard .by small{font-size:12.5px;color:var(--grey)}
-
-  /* FINAL */
-  .final{text-align:center}
-  .final .box{background:var(--ink);border-radius:32px;padding:88px 40px;color:#fff}
-  .final .kick{color:var(--blue-bright)}
-  .final h2{color:#fff;margin-bottom:18px}
-  .final p{color:var(--grey-2);font-size:20px;max-width:520px;margin:0 auto 34px}
-  .final .btn{background:#fff;color:var(--ink)}
-  .final .btn:hover{background:var(--wash)}
-
-  /* FOOTER */
-  footer{background:var(--wash);padding:64px 0 40px;font-size:13px}
-  .foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
-  .foot .logo{margin-bottom:16px}
-  .foot .desc{color:var(--grey);max-width:280px;line-height:1.6}
-  .foot h5{font-size:12px;font-weight:600;color:var(--ink);margin-bottom:14px;text-transform:uppercase;letter-spacing:.04em}
-  .foot a{display:block;color:var(--grey);margin-bottom:9px;transition:.2s}
-  .foot a:hover{color:var(--blue)}
-  .foot-bot{margin-top:52px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:var(--grey-2);flex-wrap:wrap;gap:10px}
-
-  /* LANGUAGE TOGGLE — robust: toggle spans are always inline text inside styled blocks */
-  [data-en]{display:none}
-  html[lang="en"] [data-en]{display:inline}
-  html[lang="en"] [data-fr]{display:none}
-
-  @media(max-width:900px){
-    section{padding:80px 0}
-    .hero-grid,.spot{grid-template-columns:1fr;gap:40px}
-    .sysflow,.secgrid{grid-template-columns:repeat(2,1fr)}
-    .whygrid,.tgrid{grid-template-columns:1fr}
-    .statbar .wrap{grid-template-columns:repeat(2,1fr);gap:32px}
-    .navlinks{display:none}
-    .menutog{display:block}
-    .foot{grid-template-columns:1fr 1fr}
-  }
-  @media(max-width:520px){
-    .sysflow,.secgrid{grid-template-columns:1fr}
-    .foot{grid-template-columns:1fr}
-    .final .box{padding:56px 24px}
-  }
-</style>
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
 <header>
   <div class="wrap nav">
-    <a href="#" class="logo"><span class="mark">7</span>Sevn <b>Systems</b></a>
+    <a href="index.html" class="brand"><img src="assets/logo-clair.svg" alt="Sevn Systems"></a>
     <nav class="navlinks">
-      <a href="#systemes"><span data-fr>Méthode</span><span data-en>Method</span></a>
-      <a href="#crm">CRM</a>
-      <a href="#secteurs"><span data-fr>Secteurs</span><span data-en>Sectors</span></a>
-      <a href="#pourquoi"><span data-fr>Pourquoi nous</span><span data-en>Why us</span></a>
-      <a href="#avis"><span data-fr>Avis</span><span data-en>Reviews</span></a>
+      <a href="methode.html">Méthode</a>
+      <div class="hasmega">
+        <a href="secteurs.html" class="megatrigger">Secteurs <span class="car">▼</span></a>
+        <div class="mega"><div class="mega-inner">
+          <div class="mega-col"><h5>🩺 Santé &amp; Médical</h5>
+            <a href="secteurs.html#dentaire">Dentaire<small>Implants, ortho, esthétique</small></a>
+            <a href="secteurs.html#audio">Audioprothèse<small>Appareils, bilans auditifs</small></a>
+          </div>
+          <div class="mega-col"><h5>✨ Esthétique &amp; Beauté</h5>
+            <a href="secteurs.html#esthetique">Médecine esthétique<small>Injections, laser</small></a>
+            <a href="secteurs.html#chirurgie">Chirurgie esthétique<small>Interventions, greffe</small></a>
+            <a href="secteurs.html#minceur">Beauté &amp; minceur<small>Cryolipolyse, soins corps</small></a>
+          </div>
+          <div class="mega-col"><h5>⚡ Rénovation &amp; Énergie</h5>
+            <a href="secteurs.html#pac">Pompe à chaleur<small>PAC air/eau, air/air</small></a>
+            <a href="secteurs.html#solaire">Panneaux solaires<small>Photovoltaïque</small></a>
+            <a href="secteurs.html#renovation">Rénovation &amp; isolation<small>Ampleur, MaPrimeRénov'</small></a>
+          </div>
+          <div class="mega-col"><h5>🏢 Autres secteurs</h5>
+            <a href="secteurs.html#immobilier">Immobilier<small>Achat, vente, mandats</small></a>
+            <a href="secteurs.html#patrimoine">Patrimoine &amp; finance<small>SCPI, mutuelle senior</small></a>
+            <a href="secteurs.html#formation">Formation &amp; écoles<small>Bachelor, MBA, CPF</small></a>
+          </div>
+        </div>
+        <div class="mega-foot"><div class="fin"><span>Votre secteur n'est pas listé ?</span><a href="contact.html" class="btn ghost" style="padding:8px 16px">Parlons-en →</a></div></div>
+        </div>
+      </div>
+      <a href="cas-clients.html">Cas clients</a>
+      <a href="pourquoi.html">Pourquoi nous</a>
+      <a href="blog.html">Blog</a>
     </nav>
     <div class="navright">
-      <div class="lang">
-        <button class="on" id="lfr" onclick="setLang('fr')">FR</button>
-        <button id="len" onclick="setLang('en')">EN</button>
-      </div>
-      <a href="#devis" class="btn"><span data-fr>Devis gratuit</span><span data-en>Free quote</span></a>
-      <button class="menutog" onclick="document.querySelector('.navlinks').style.display='flex'">☰</button>
+      <a href="contact.html" class="btn">Devis gratuit</a>
+      <button class="menutog" onclick="var n=document.querySelector('.navlinks');n.style.display=n.style.display==='flex'?'none':'flex'">☰</button>
     </div>
   </div>
 </header>
@@ -223,33 +59,35 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="pill"><span class="d"></span><span data-fr>100% exclusifs · livrés dans votre CRM</span><span data-en>100% exclusive · delivered to your CRM</span></span>
-      <h1 class="display"><span data-fr>Vos prochains clients. <span class="fade">Livrés chaque jour.</span></span><span data-en>Your next clients. <span class="fade">Delivered every day.</span></span></h1>
-      <p class="lead"><span data-fr>Sept systèmes d'acquisition qui captent, qualifient et livrent des leads exclusifs directement dans votre CRM. Vous ne les partagez avec personne.</span><span data-en>Seven acquisition systems that capture, qualify and deliver exclusive leads straight into your CRM. You share them with no one.</span></p>
+      <span class="pill"><span class="d"></span>Agence française · Leads 100% exclusifs</span>
+      <h1 class="display">Vos prochains clients. <span class="fade">Livrés chaque jour.</span></h1>
+      <p class="lead">Sept systèmes d'acquisition qui captent, qualifient et livrent des leads exclusifs directement dans votre CRM. Vous ne les partagez avec personne.</p>
       <div class="trust-row">
-        <span class="chip">🔒 <span data-fr>100% exclusifs</span><span data-en>100% exclusive</span></span>
+        <span class="chip">🔒 100% exclusifs</span>
         <span class="chip">✅ RGPD</span>
-        <span class="chip">⚡ <span data-fr>Temps réel</span><span data-en>Real time</span></span>
-        <span class="chip">📅 <span data-fr>RDV clé en main</span><span data-en>Booked appointments</span></span>
+        <span class="chip">⚡ Temps réel</span>
+        <span class="chip">📅 RDV clé en main</span>
       </div>
     </div>
 
     <div class="formcard" id="devis">
-      <h3><span data-fr>Parlons de votre secteur</span><span data-en>Let's talk about your sector</span></h3>
-      <p class="sub"><span data-fr>Un expert vous rappelle sous 24h ouvrées.</span><span data-en>An expert calls you back within 1 business day.</span></p>
-      <div class="field"><input type="text" data-ph-fr="Nom / entreprise" data-ph-en="Name / company"></div>
-      <div class="field"><input type="email" data-ph-fr="Email professionnel" data-ph-en="Work email"></div>
-      <div class="field"><input type="tel" data-ph-fr="Téléphone" data-ph-en="Phone"></div>
-      <div class="field">
-        <select>
-          <option data-ph-fr="Votre secteur d'activité">Votre secteur d'activité</option>
-          <option>Dentaire</option><option>Esthétique</option><option>Pompe à chaleur</option>
-          <option>Panneaux solaires</option><option>Rénovation</option><option>Immobilier</option>
-          <option>Audioprothèse</option><option>Patrimoine / Finance</option><option>Autre</option>
-        </select>
-      </div>
-      <button class="btn"><span data-fr>Obtenir un devis gratuit</span><span data-en>Get a free quote</span> →</button>
-      <p class="fineprint"><span data-fr>Réponse sous 24h · Sans engagement · Données protégées</span><span data-en>24h reply · No commitment · Data protected</span></p>
+      <h3>Parlons de votre secteur</h3>
+      <p class="sub">Un expert vous rappelle sous 24h ouvrées.</p>
+      <form id="leadForm" onsubmit="return submitLead(event)">
+        <div class="field"><input name="nom" type="text" placeholder="Nom / entreprise" required></div>
+        <div class="field"><input name="email" type="email" placeholder="Email professionnel" required></div>
+        <div class="field"><input name="telephone" type="tel" placeholder="Téléphone" required></div>
+        <div class="field">
+          <select name="secteur" required>
+            <option value="">Votre secteur d'activité</option>
+            <option>Dentaire</option><option>Esthétique</option><option>Pompe à chaleur</option>
+            <option>Panneaux solaires</option><option>Rénovation</option><option>Immobilier</option>
+            <option>Audioprothèse</option><option>Patrimoine / Finance</option><option>Autre</option>
+          </select>
+        </div>
+        <button class="btn" type="submit">Obtenir un devis gratuit →</button>
+        <p class="fineprint" id="formMsg">Réponse sous 24h · Sans engagement · Données protégées</p>
+      </form>
     </div>
   </div>
 </section>
@@ -257,113 +95,106 @@
 <!-- STATS -->
 <div class="statbar">
   <div class="wrap">
-    <div class="stat"><div class="num" style="color:var(--blue)">100+</div><div class="lab"><span data-fr>clients accompagnés</span><span data-en>clients served</span></div></div>
-    <div class="stat"><div class="num">48h</div><div class="lab"><span data-fr>délai de démarrage</span><span data-en>time to launch</span></div></div>
-    <div class="stat"><div class="num">&lt;60s</div><div class="lab"><span data-fr>entre lead et livraison</span><span data-en>from lead to delivery</span></div></div>
-    <div class="stat"><div class="num">1</div><div class="lab"><span data-fr>client par zone — exclusif</span><span data-en>client per zone — exclusive</span></div></div>
+    <!-- 👉 Remplace ces chiffres par les tiens quand tu les auras -->
+    <div class="stat"><div class="num" style="color:var(--blue)">100+</div><div class="lab">clients accompagnés</div></div>
+    <div class="stat"><div class="num">48h</div><div class="lab">délai de démarrage</div></div>
+    <div class="stat"><div class="num">&lt;60s</div><div class="lab">entre lead et livraison</div></div>
+    <div class="stat"><div class="num">1</div><div class="lab">client par zone — exclusif</div></div>
   </div>
 </div>
 
-<!-- 7 SYSTEMS -->
-<section class="systems" id="systemes">
+<!-- METHODE TEASER -->
+<section class="systems">
   <div class="wrap">
     <div class="shead">
-      <span class="kick"><span data-fr>La méthode Sevn</span><span data-en>The Sevn method</span></span>
-      <h2 class="h2"><span data-fr>Sept systèmes. Un flux de clients.</span><span data-en>Seven systems. One flow of clients.</span></h2>
-      <p class="lead"><span data-fr>Chaque lead traverse sept systèmes conçus pour ne livrer que des prospects chauds, exclusifs et prêts à être rappelés.</span><span data-en>Every lead runs through seven systems built to deliver only warm, exclusive prospects ready to be called.</span></p>
+      <span class="kick">La méthode Sevn</span>
+      <h2 class="h2">Sept systèmes. Un flux de clients.</h2>
+      <p class="lead">Chaque lead traverse sept systèmes conçus pour ne livrer que des prospects chauds, exclusifs et prêts à être rappelés.</p>
     </div>
     <div class="sysflow">
-      <div class="sysstep"><div class="idx">01</div><h3><span data-fr>Capter</span><span data-en>Capture</span></h3><p><span data-fr>Campagnes Meta &amp; Google ciblées sur votre zone.</span><span data-en>Meta &amp; Google campaigns targeted on your area.</span></p></div>
-      <div class="sysstep"><div class="idx">02</div><h3><span data-fr>Convertir</span><span data-en>Convert</span></h3><p><span data-fr>Landing pages haute conversion qui transforment le clic en demande.</span><span data-en>High-converting landing pages that turn clicks into requests.</span></p></div>
-      <div class="sysstep"><div class="idx">03</div><h3><span data-fr>Qualifier</span><span data-en>Qualify</span></h3><p><span data-fr>Filtrage qui écarte les curieux, garde les leads chauds.</span><span data-en>Filtering that screens out the curious, keeps warm leads.</span></p></div>
-      <div class="sysstep"><div class="idx">04</div><h3><span data-fr>Livrer</span><span data-en>Deliver</span></h3><p><span data-fr>Injection directe dans votre CRM, en temps réel.</span><span data-en>Direct injection into your CRM, in real time.</span></p></div>
-      <div class="sysstep"><div class="idx">05</div><h3><span data-fr>Relancer</span><span data-en>Nurture</span></h3><p><span data-fr>Séquences SMS &amp; email pour qu'aucun lead ne refroidisse.</span><span data-en>SMS &amp; email sequences so no lead goes cold.</span></p></div>
-      <div class="sysstep"><div class="idx">06</div><h3><span data-fr>Piloter</span><span data-en>Track</span></h3><p><span data-fr>Dashboard temps réel : coût, contact, RDV. Tout mesuré.</span><span data-en>Real-time dashboard: cost, contact, appointments. All measured.</span></p></div>
-      <div class="sysstep hl"><span class="badge"><span data-fr>Option</span><span data-en>Add-on</span></span><div class="idx">07</div><h3><span data-fr>Closer</span><span data-en>Close</span></h3><p><span data-fr>Un commercial dédié appelle et pose les RDV dans votre agenda.</span><span data-en>A dedicated rep calls and books appointments in your calendar.</span></p></div>
-      <div class="sysstep" style="display:grid;place-content:center;text-align:center">
-        <a href="#devis" style="color:var(--blue-bright);font-weight:500;font-size:15px"><span data-fr>Votre secteur →</span><span data-en>Your sector →</span></a>
-      </div>
+      <div class="sysstep"><div class="idx">01</div><h3>Capter</h3><p>Campagnes Meta &amp; Google ciblées sur votre zone.</p></div>
+      <div class="sysstep"><div class="idx">02</div><h3>Convertir</h3><p>Landing pages haute conversion qui transforment le clic en demande.</p></div>
+      <div class="sysstep"><div class="idx">03</div><h3>Qualifier</h3><p>Filtrage qui écarte les curieux, garde les leads chauds.</p></div>
+      <div class="sysstep"><div class="idx">04</div><h3>Livrer</h3><p>Injection directe dans votre CRM, en temps réel.</p></div>
+      <div class="sysstep"><div class="idx">05</div><h3>Relancer</h3><p>Séquences SMS &amp; email pour qu'aucun lead ne refroidisse.</p></div>
+      <div class="sysstep"><div class="idx">06</div><h3>Piloter</h3><p>Dashboard temps réel : coût, contact, RDV. Tout mesuré.</p></div>
+      <div class="sysstep hl"><span class="badge">Option</span><div class="idx">07</div><h3>Closer</h3><p>Un commercial dédié appelle et pose les RDV dans votre agenda.</p></div>
+      <div class="sysstep" style="display:grid;place-content:center;text-align:center"><a href="methode.html" style="color:var(--blue-elec);font-weight:500;font-size:15px">Voir la méthode →</a></div>
     </div>
   </div>
 </section>
 
-<!-- CRM -->
-<section id="crm">
+<!-- CRM SPOTLIGHT -->
+<section>
   <div class="wrap spot">
     <div>
-      <span class="kick"><span data-fr>Notre différence</span><span data-en>Our difference</span></span>
-      <h2 class="h2"><span data-fr>Votre CRM, prêt à l'emploi.</span><span data-en>Your CRM, ready to go.</span></h2>
-      <p class="lead"><span data-fr>Là où les autres envoient un tableur, nous livrons un CRM complet, déjà configuré. Vos leads y arrivent classés, suivis, prêts à rappeler — ou à confier à un commercial.</span><span data-en>Where others send a spreadsheet, we deliver a full CRM, already set up. Your leads arrive sorted, tracked, ready to call — or to hand to a rep.</span></p>
+      <span class="kick">Notre différence</span>
+      <h2 class="h2">Votre CRM, prêt à l'emploi.</h2>
+      <p class="lead mt-s">Là où les autres envoient un tableur, nous livrons un CRM complet, déjà configuré et à votre marque. Vos leads y arrivent classés, suivis, prêts à rappeler — ou à confier à un commercial. Et si vous avez déjà votre CRM, on envoie les leads directement dessus.</p>
       <ul>
-        <li><span class="ck">✓</span><span><span data-fr>Accès complet à l'interface, montrée dès le premier échange</span><span data-en>Full access, shown from the very first call</span></span></li>
-        <li><span class="ck">✓</span><span><span data-fr>Pipeline, relances et suivi entièrement automatisés</span><span data-en>Pipeline, follow-ups and tracking fully automated</span></span></li>
-        <li><span class="ck">✓</span><span><span data-fr>Prêt à brancher un commercial quand vous voulez</span><span data-en>Ready to plug in a sales rep whenever you want</span></span></li>
+        <li><span class="ck">✓</span><span>Accès dédié, adapté à votre offre et à vos besoins</span></li>
+        <li><span class="ck">✓</span><span>Pipeline, relances et suivi entièrement automatisés</span></li>
+        <li><span class="ck">✓</span><span>Compatible avec votre CRM existant (HubSpot, etc.)</span></li>
       </ul>
+      <a href="pourquoi.html" class="btn ghost mt-l">Découvrir le CRM →</a>
     </div>
     <div class="mock">
       <div class="top"><i></i><i></i><i></i><span>crm.sevnsystems.com</span></div>
       <div class="list">
-        <div class="mrow"><div class="who"><div class="av">ML</div><div><b>Marie L.</b><small><span data-fr>Implant · Paris 15</span><span data-en>Implant · Paris 15</span></small></div></div><span class="tag n"><span data-fr>Nouveau</span><span data-en>New</span></span></div>
-        <div class="mrow"><div class="who"><div class="av">TR</div><div><b>Thomas R.</b><small><span data-fr>Pompe à chaleur · Lyon</span><span data-en>Heat pump · Lyon</span></small></div></div><span class="tag h"><span data-fr>À rappeler</span><span data-en>Call now</span></span></div>
-        <div class="mrow"><div class="who"><div class="av">SK</div><div><b>Sophie K.</b><small><span data-fr>Rénovation · Bordeaux</span><span data-en>Renovation · Bordeaux</span></small></div></div><span class="tag w"><span data-fr>RDV posé</span><span data-en>Booked</span></span></div>
-        <div class="mrow"><div class="who"><div class="av">AB</div><div><b>Alexandre B.</b><small><span data-fr>Esthétique · Marseille</span><span data-en>Aesthetic · Marseille</span></small></div></div><span class="tag n"><span data-fr>Nouveau</span><span data-en>New</span></span></div>
+        <div class="mrow"><div class="who"><div class="av">ML</div><div><b>Marie L.</b><small>Implant · Paris 15</small></div></div><span class="tag n">Nouveau</span></div>
+        <div class="mrow"><div class="who"><div class="av">TR</div><div><b>Thomas R.</b><small>Pompe à chaleur · Lyon</small></div></div><span class="tag h">À rappeler</span></div>
+        <div class="mrow"><div class="who"><div class="av">SK</div><div><b>Sophie K.</b><small>Rénovation · Bordeaux</small></div></div><span class="tag w">RDV posé</span></div>
+        <div class="mrow"><div class="who"><div class="av">AB</div><div><b>Alexandre B.</b><small>Esthétique · Marseille</small></div></div><span class="tag n">Nouveau</span></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- SECTORS -->
-<section class="sectors" id="secteurs">
+<section class="sectors">
   <div class="wrap">
     <div class="shead">
-      <span class="kick"><span data-fr>Secteurs</span><span data-en>Sectors</span></span>
-      <h2 class="h2"><span data-fr>Une expertise par verticale</span><span data-en>Expertise by vertical</span></h2>
-      <p class="lead"><span data-fr>Nous nous concentrons sur les secteurs où un seul client vaut plusieurs milliers d'euros.</span><span data-en>We focus on sectors where a single client is worth thousands.</span></p>
+      <span class="kick">Secteurs</span>
+      <h2 class="h2">Une expertise par verticale</h2>
+      <p class="lead">Nous nous concentrons sur les secteurs où un seul client vaut plusieurs milliers d'euros.</p>
     </div>
     <div class="secgrid">
-      <div class="seccard"><span class="star">Top</span><span class="e">🦷</span><h4><span data-fr>Dentaire</span><span data-en>Dental</span></h4><span class="m"><span data-fr>Implants, ortho, esthétique</span><span data-en>Implants, ortho, cosmetic</span></span></div>
-      <div class="seccard"><span class="star">Top</span><span class="e">💆</span><h4><span data-fr>Esthétique</span><span data-en>Aesthetics</span></h4><span class="m"><span data-fr>Laser, cryo, soins</span><span data-en>Laser, cryo, care</span></span></div>
-      <div class="seccard"><span class="star">Top</span><span class="e">🔥</span><h4><span data-fr>Pompe à chaleur</span><span data-en>Heat pumps</span></h4><span class="m"><span data-fr>PAC air/eau, air/air</span><span data-en>Air/water, air/air</span></span></div>
-      <div class="seccard"><span class="e">☀️</span><h4><span data-fr>Solaire</span><span data-en>Solar</span></h4><span class="m"><span data-fr>Photovoltaïque, autoconso</span><span data-en>PV, self-consumption</span></span></div>
-      <div class="seccard"><span class="e">🏠</span><h4><span data-fr>Rénovation</span><span data-en>Renovation</span></h4><span class="m"><span data-fr>Ampleur, isolation</span><span data-en>Full, insulation</span></span></div>
-      <div class="seccard"><span class="e">🔑</span><h4><span data-fr>Immobilier</span><span data-en>Real estate</span></h4><span class="m"><span data-fr>Achat, vente, mandat</span><span data-en>Buy, sell, listing</span></span></div>
-      <div class="seccard"><span class="e">👂</span><h4><span data-fr>Audioprothèse</span><span data-en>Hearing aids</span></h4><span class="m"><span data-fr>Appareils, bilans</span><span data-en>Devices, tests</span></span></div>
-      <div class="seccard"><span class="e">💰</span><h4><span data-fr>Patrimoine</span><span data-en>Wealth</span></h4><span class="m"><span data-fr>SCPI, mutuelle senior</span><span data-en>Funds, senior insurance</span></span></div>
+      <a class="seccard" href="secteurs.html"><span class="star">Top</span><span class="e">🦷</span><h4>Dentaire</h4><span class="m">Implants, ortho, esthétique</span></a>
+      <a class="seccard" href="secteurs.html"><span class="star">Top</span><span class="e">💆</span><h4>Esthétique</h4><span class="m">Laser, cryo, soins</span></a>
+      <a class="seccard" href="secteurs.html"><span class="star">Top</span><span class="e">🔥</span><h4>Pompe à chaleur</h4><span class="m">PAC air/eau, air/air</span></a>
+      <a class="seccard" href="secteurs.html"><span class="e">☀️</span><h4>Solaire</h4><span class="m">Photovoltaïque, autoconso</span></a>
+      <a class="seccard" href="secteurs.html"><span class="e">🏠</span><h4>Rénovation</h4><span class="m">Ampleur, isolation</span></a>
+      <a class="seccard" href="secteurs.html"><span class="e">🔑</span><h4>Immobilier</h4><span class="m">Achat, vente, mandat</span></a>
+      <a class="seccard" href="secteurs.html"><span class="e">👂</span><h4>Audioprothèse</h4><span class="m">Appareils, bilans</span></a>
+      <a class="seccard" href="secteurs.html"><span class="e">💰</span><h4>Patrimoine</h4><span class="m">SCPI, mutuelle senior</span></a>
     </div>
   </div>
 </section>
 
-<!-- WHY -->
-<section id="pourquoi">
+<!-- WHY (3) -->
+<section>
   <div class="wrap">
-    <div class="shead">
-      <span class="kick"><span data-fr>Pourquoi Sevn Systems</span><span data-en>Why Sevn Systems</span></span>
-      <h2 class="h2"><span data-fr>Des leads que personne d'autre ne reçoit</span><span data-en>Leads no one else receives</span></h2>
+    <div class="shead"><span class="kick">Pourquoi Sevn Systems</span><h2 class="h2">Des leads que personne d'autre ne reçoit</h2></div>
+    <div class="grid-3">
+      <div class="card"><div class="ic">🔒</div><h3>Exclusivité totale</h3><p>Un lead = un seul client. Jamais revendu à vos concurrents. Un seul professionnel par zone géographique.</p><div class="kpi">100% exclusifs</div></div>
+      <div class="card"><div class="ic">⚡</div><h3>Livraison temps réel</h3><p>Chaque lead arrive dans votre CRM à la seconde. Un prospect rappelé vite convertit bien mieux.</p><div class="kpi">&lt;60s lead → CRM</div></div>
+      <div class="card"><div class="ic">📊</div><h3>Transparence totale</h3><p>Votre budget publicitaire reste sur votre compte. Vous voyez chaque euro dépensé et chaque lead généré.</p><div class="kpi">Votre compte, vos données</div></div>
     </div>
-    <div class="whygrid">
-      <div class="why"><div class="ic">🔒</div><h3><span data-fr>Exclusivité totale</span><span data-en>Full exclusivity</span></h3><p><span data-fr>Un lead = un seul client. Jamais revendu à vos concurrents. Un seul professionnel par zone.</span><span data-en>One lead = one client. Never resold to competitors. One professional per zone.</span></p><div class="kpi"><span data-fr>100% exclusifs</span><span data-en>100% exclusive</span></div></div>
-      <div class="why"><div class="ic">⚡</div><h3><span data-fr>Livraison temps réel</span><span data-en>Real-time delivery</span></h3><p><span data-fr>Chaque lead arrive dans votre CRM à la seconde. Un prospect rappelé vite convertit bien mieux.</span><span data-en>Every lead lands in your CRM instantly. A prospect called fast converts far better.</span></p><div class="kpi">&lt;60s lead → CRM</div></div>
-      <div class="why"><div class="ic">📊</div><h3><span data-fr>Transparence totale</span><span data-en>Full transparency</span></h3><p><span data-fr>Votre budget pub reste sur votre compte. Vous voyez chaque euro dépensé et chaque lead généré.</span><span data-en>Your ad budget stays on your account. You see every euro spent and every lead generated.</span></p><div class="kpi"><span data-fr>Votre compte, vos données</span><span data-en>Your account, your data</span></div></div>
-      <div class="why"><div class="ic">🎯</div><h3><span data-fr>Prospects chauds</span><span data-en>Warm prospects</span></h3><p><span data-fr>Qualifiés avant livraison : intention réelle, budget, zone. Fini les contacts froids.</span><span data-en>Qualified before delivery: real intent, budget, zone. No more cold contacts.</span></p><div class="kpi"><span data-fr>Qualifiés à la source</span><span data-en>Qualified at source</span></div></div>
-      <div class="why"><div class="ic">📅</div><h3><span data-fr>RDV clé en main</span><span data-en>Booked appointments</span></h3><p><span data-fr>Option premium : notre commercial appelle et pose les rendez-vous directement dans votre agenda.</span><span data-en>Premium add-on: our rep calls and books appointments straight into your calendar.</span></p><div class="kpi"><span data-fr>Système 7</span><span data-en>System 7</span></div></div>
-      <div class="why"><div class="ic">🛡️</div><h3><span data-fr>100% conforme</span><span data-en>100% compliant</span></h3><p><span data-fr>Funnel opt-in de bout en bout, conforme RGPD. Vos données et celles de vos prospects protégées.</span><span data-en>End-to-end opt-in funnel, GDPR compliant. Your data and your prospects' protected.</span></p><div class="kpi">RGPD</div></div>
-    </div>
+    <div class="center mt-l"><a href="pourquoi.html" class="btn">Toutes nos garanties →</a></div>
   </div>
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="sectors" id="avis">
+<section class="sectors">
   <div class="wrap">
-    <div class="shead">
-      <span class="kick"><span data-fr>Ils nous font confiance</span><span data-en>They trust us</span></span>
-      <h2 class="h2"><span data-fr>Ce que disent nos clients</span><span data-en>What our clients say</span></h2>
-      <p style="margin-top:16px;font-size:14px;color:var(--grey-2)"><span data-fr>Témoignages anonymisés à la demande de nos clients.</span><span data-en>Testimonials anonymized at our clients' request.</span></p>
-    </div>
+    <div class="shead"><span class="kick">Ils nous font confiance</span><h2 class="h2">Ce que disent nos clients</h2>
+      <p style="margin-top:14px;font-size:14px;color:var(--grey-2)">Témoignages anonymisés à la demande de nos clients.</p></div>
     <div class="tgrid">
-      <div class="tcard"><div class="stars">★★★★★</div><p><span data-fr>« Les leads arrivent dans le CRM déjà qualifiés, mon équipe rappelle dans la foulée. Le taux de transformation a clairement grimpé. »</span><span data-en>"Leads arrive in the CRM already qualified, my team calls right away. Conversion has clearly gone up."</span></p><div class="by"><div class="av">CD</div><div><b><span data-fr>Centre dentaire</span><span data-en>Dental center</span></b><small>Île-de-France</small></div></div></div>
-      <div class="tcard"><div class="stars">★★★★★</div><p><span data-fr>« Ce que j'apprécie : je suis le seul de ma zone à recevoir ces leads. Plus de guerre des prix sur les mêmes contacts. »</span><span data-en>"What I value: I'm the only one in my zone receiving these leads. No more price war on the same contacts."</span></p><div class="by"><div class="av">IS</div><div><b><span data-fr>Installateur solaire</span><span data-en>Solar installer</span></b><small>Rhône-Alpes</small></div></div></div>
-      <div class="tcard"><div class="stars">★★★★★</div><p><span data-fr>« Le dashboard est limpide. Je vois exactement ce que coûte chaque lead et lesquels convertissent. Enfin de la visibilité. »</span><span data-en>"The dashboard is crystal clear. I see exactly what each lead costs and which convert. Finally, visibility."</span></p><div class="by"><div class="av">AI</div><div><b><span data-fr>Agence immobilière</span><span data-en>Real estate agency</span></b><small>Nouvelle-Aquitaine</small></div></div></div>
+      <div class="tcard"><div class="stars">★★★★★</div><p>« Les leads arrivent dans le CRM déjà qualifiés, mon équipe rappelle dans la foulée. Le taux de transformation a clairement grimpé. »</p><div class="by"><div class="av">CD</div><div><b>Centre dentaire</b><small>Île-de-France</small></div></div></div>
+      <div class="tcard"><div class="stars">★★★★★</div><p>« Ce que j'apprécie : je suis le seul de ma zone à recevoir ces leads. Plus de guerre des prix sur les mêmes contacts. »</p><div class="by"><div class="av">IS</div><div><b>Installateur solaire</b><small>Rhône-Alpes</small></div></div></div>
+      <div class="tcard"><div class="stars">★★★★★</div><p>« Le dashboard est limpide. Je vois exactement ce que coûte chaque lead et lesquels convertissent. Enfin de la visibilité. »</p><div class="by"><div class="av">AI</div><div><b>Agence immobilière</b><small>Nouvelle-Aquitaine</small></div></div></div>
     </div>
+    <div class="center mt-l"><a href="cas-clients.html" class="btn ghost">Voir les cas clients →</a></div>
   </div>
 </section>
 
@@ -371,59 +202,51 @@
 <section class="final">
   <div class="wrap">
     <div class="box">
-      <span class="kick"><span data-fr>Places limitées par zone</span><span data-en>Limited spots per zone</span></span>
-      <h2 class="h2"><span data-fr>Votre zone est peut-être encore libre.</span><span data-en>Your zone might still be open.</span></h2>
-      <p><span data-fr>Un seul client par secteur et par zone. Vérifions ensemble si la vôtre est disponible.</span><span data-en>One client per sector and zone. Let's check together if yours is available.</span></p>
-      <a href="#devis" class="btn lg"><span data-fr>Obtenir un devis gratuit</span><span data-en>Get a free quote</span> →</a>
+      <span class="kick">Places limitées par zone</span>
+      <h2 class="h2">Votre zone est peut-être encore libre.</h2>
+      <p>Un seul client par secteur et par zone. Vérifions ensemble si la vôtre est disponible.</p>
+      <a href="contact.html" class="btn white lg">Obtenir un devis gratuit →</a>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="wrap">
-    <div class="foot">
-      <div>
-        <a href="#" class="logo"><span class="mark">7</span>Sevn <b>Systems</b></a>
-        <p class="desc"><span data-fr>Sept systèmes d'acquisition pour livrer des leads exclusifs aux professionnels, directement dans leur CRM.</span><span data-en>Seven acquisition systems delivering exclusive leads to professionals, straight into their CRM.</span></p>
-      </div>
-      <div>
-        <h5><span data-fr>Produit</span><span data-en>Product</span></h5>
-        <a href="#systemes"><span data-fr>La méthode</span><span data-en>The method</span></a>
-        <a href="#crm">CRM</a>
-        <a href="#secteurs"><span data-fr>Secteurs</span><span data-en>Sectors</span></a>
-        <a href="#pourquoi"><span data-fr>Pourquoi nous</span><span data-en>Why us</span></a>
-      </div>
-      <div>
-        <h5>Contact</h5>
-        <a href="#devis"><span data-fr>Devis gratuit</span><span data-en>Free quote</span></a>
-        <a href="mailto:hello@sevnsystems.com">hello@sevnsystems.com</a>
-      </div>
-      <div>
-        <h5><span data-fr>Légal</span><span data-en>Legal</span></h5>
-        <a href="#"><span data-fr>Mentions légales</span><span data-en>Legal notice</span></a>
-        <a href="#"><span data-fr>Confidentialité</span><span data-en>Privacy</span></a>
-        <a href="#">CGV</a>
-      </div>
-    </div>
-    <div class="foot-bot">
-      <span>© 2026 Sevn Systems</span>
-      <span>sevnsystems.com</span>
-    </div>
+  <div class="wrap foot">
+    <div class="brand"><img src="assets/logo-clair.svg" alt="Sevn Systems"><p class="desc">Sept systèmes d'acquisition pour livrer des leads exclusifs aux professionnels, directement dans leur CRM.</p></div>
+    <div><h5>Produit</h5><a href="methode.html">La méthode</a><a href="secteurs.html">Secteurs</a><a href="cas-clients.html">Cas clients</a><a href="pourquoi.html">Pourquoi nous</a></div>
+    <div><h5>Ressources</h5><a href="blog.html">Blog</a><a href="contact.html">Devis gratuit</a><a href="mailto:hello@sevnsystems.com">hello@sevnsystems.com</a></div>
+    <div><h5>Légal</h5><a href="#">Mentions légales</a><a href="#">Confidentialité</a><a href="#">CGV</a></div>
   </div>
+  <div class="foot-bot"><span>© 2026 Sevn Systems</span><span>sevnsystems.com</span></div>
 </footer>
 
 <script>
-function setLang(l){
-  document.documentElement.lang=l;
-  document.getElementById('lfr').classList.toggle('on',l==='fr');
-  document.getElementById('len').classList.toggle('on',l==='en');
-  document.querySelectorAll('[data-ph-fr]').forEach(function(el){
-    el.setAttribute('placeholder', l==='en' && el.getAttribute('data-ph-en') ? el.getAttribute('data-ph-en') : el.getAttribute('data-ph-fr'));
-    if(el.tagName==='OPTION'){ el.textContent = l==='en' && el.getAttribute('data-ph-en') ? el.getAttribute('data-ph-en') : el.getAttribute('data-ph-fr'); }
-  });
+/* ⚙️ Quand le CRM sera déployé, mets ici son URL + la clé API pour que
+   le formulaire envoie les leads directement dans le CRM.
+   Ex : const CRM_ENDPOINT = "https://crm.sevnsystems.com/api/leads";
+        const CRM_API_KEY  = "ta-cle-api"; */
+const CRM_ENDPOINT = "";
+const CRM_API_KEY = "";
+
+async function submitLead(e){
+  e.preventDefault();
+  const form = e.target;
+  const msg = document.getElementById('formMsg');
+  const data = Object.fromEntries(new FormData(form).entries());
+  data.source = 'site';
+  if(CRM_ENDPOINT){
+    try{
+      await fetch(CRM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','x-api-key':CRM_API_KEY},body:JSON.stringify(data)});
+    }catch(err){/* silencieux */}
+  }
+  form.style.display='none';
+  msg.style.display='block';
+  msg.style.color='var(--blue)';
+  msg.style.fontSize='15px';
+  msg.textContent='Merci ! Un expert vous rappelle sous 24h ouvrées.';
+  return false;
 }
-setLang('fr');
 </script>
 </body>
 </html>
