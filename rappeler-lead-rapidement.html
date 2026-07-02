@@ -5,48 +5,305 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pourquoi rappeler un lead en moins de 5 minutes change tout | Sevn Systems</title>
 <meta name="description" content="La vitesse de rappel est le facteur le plus sous-estimé de la conversion des leads. Voici pourquoi les premières minutes décident de tout.">
-<link rel="icon" href="../assets/symbole.svg">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHRpdGxlPlN5bWJvbGUgU0U3TiDigJQgY2FycsOpIHNvbWJyZTwvdGl0bGU+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMjAiIHJ4PSIyOCIgZmlsbD0iIzFEMUQxRiIvPgogIDx0ZXh0IHg9IjYwIiB5PSI2NCIgZm9udC1mYW1pbHk9IkludGVyLC1hcHBsZS1zeXN0ZW0sQmxpbmtNYWNTeXN0ZW1Gb250LCdTZWdvZSBVSScsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIzNCIgZm9udC13ZWlnaHQ9IjgwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9ImNlbnRyYWwiPjx0c3BhbiBmaWxsPSIjRkZGRkZGIj5TRTwvdHNwYW4+PHRzcGFuIGZpbGw9IiMxRjhCRkYiPjc8L3RzcGFuPjx0c3BhbiBmaWxsPSIjRkZGRkZGIj5OPC90c3Bhbj48L3RleHQ+Cjwvc3ZnPgo=">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/style.css">
+<style>
+/* ============================================================
+   SEVN SYSTEMS — style global (toutes les pages)
+   Design épuré type Apple · bleu électrique
+   ============================================================ */
+:root{
+  --blue:#0071E3;
+  --blue-elec:#1F8BFF;
+  --blue-deep:#0257B0;
+  --ink:#1D1D1F;
+  --grey:#6E6E73;
+  --grey-2:#86868B;
+  --line:#E8E8ED;
+  --wash:#F5F5F7;
+  --wash-2:#EEF1F5;
+  --wash-blue:#F0F6FF;
+  --white:#FFFFFF;
+  --r:20px;
+  --shadow:0 4px 24px rgba(0,0,0,.06);
+  --shadow-lg:0 20px 60px rgba(0,0,0,.10);
+  --maxw:1120px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--ink);background:var(--white);line-height:1.5;-webkit-font-smoothing:antialiased;font-weight:400}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+a{color:inherit;text-decoration:none}
+img,svg{display:block}
+h1,h2,h3,h4{font-weight:600;letter-spacing:-.022em;line-height:1.07}
+.blue{color:var(--blue)}
+section{padding:100px 0}
+
+.display{font-size:clamp(40px,6vw,72px);font-weight:600;letter-spacing:-.03em;line-height:1.04}
+.h2{font-size:clamp(30px,4.4vw,50px);font-weight:600;letter-spacing:-.028em;line-height:1.08}
+.h3{font-size:clamp(22px,2.6vw,30px);font-weight:600;letter-spacing:-.02em}
+.lead{font-size:clamp(18px,2.1vw,23px);font-weight:400;color:var(--grey);letter-spacing:-.01em;line-height:1.45}
+.kick{display:inline-block;font-size:13.5px;font-weight:600;color:var(--blue);letter-spacing:.02em;margin-bottom:16px}
+.center{text-align:center}
+.mt-s{margin-top:14px}.mt-m{margin-top:24px}.mt-l{margin-top:40px}
+
+/* NAV */
+header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.75);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.06)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand img{height:26px}
+.navlinks{display:flex;gap:30px}
+.navlinks a{font-size:14px;font-weight:400;color:var(--ink);opacity:.82;transition:.2s}
+.navlinks a:hover,.navlinks a.active{opacity:1;color:var(--blue)}
+.navright{display:flex;align-items:center;gap:16px}
+.btn{display:inline-flex;align-items:center;gap:7px;background:var(--blue);color:#fff;padding:11px 20px;border-radius:980px;font-weight:500;font-size:14.5px;border:none;cursor:pointer;font-family:inherit;transition:.25s;white-space:nowrap}
+.btn:hover{background:var(--blue-deep)}
+.btn.lg{padding:15px 28px;font-size:16.5px}
+.btn.ghost{background:var(--wash-2);color:var(--ink)}
+.btn.ghost:hover{background:var(--line)}
+.btn.white{background:#fff;color:var(--ink)}.btn.white:hover{background:var(--wash)}
+.menutog{display:none;background:none;border:none;font-size:22px;cursor:pointer}
+
+/* HERO */
+.hero{padding:80px 0 70px}
+.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:52px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:8px;background:var(--wash-blue);color:var(--blue);font-size:13.5px;font-weight:500;padding:7px 14px;border-radius:980px;margin-bottom:24px}
+.pill .d{width:6px;height:6px;border-radius:50%;background:var(--blue)}
+.hero h1{max-width:15ch}
+.hero h1 .fade{color:var(--grey-2)}
+.hero .lead{margin:22px 0 32px;max-width:46ch}
+.trust-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px}
+.chip{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:500;color:var(--ink);background:var(--wash);padding:9px 15px;border-radius:980px}
+
+/* FORM CARD */
+.formcard{background:#fff;border:1px solid var(--line);border-radius:24px;padding:32px;box-shadow:var(--shadow-lg)}
+.formcard h3{font-size:22px;font-weight:600;letter-spacing:-.02em;margin-bottom:6px}
+.formcard p.sub{font-size:14px;color:var(--grey);margin-bottom:22px}
+.field{margin-bottom:12px}
+.field input,.field select{width:100%;padding:14px 15px;border:1px solid var(--line);border-radius:13px;font-family:inherit;font-size:15px;color:var(--ink);background:#fff;transition:.2s;-webkit-appearance:none;appearance:none}
+.field select{color:var(--grey);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%2386868B' d='M6 8L0 2l1.4-1.4L6 5.2 10.6.6 12 2z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 15px center}
+.field input:focus,.field select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px rgba(0,113,227,.12)}
+.formcard .btn{width:100%;justify-content:center;margin-top:8px;padding:15px}
+.formcard .fineprint{font-size:12px;color:var(--grey-2);text-align:center;margin-top:14px;line-height:1.5}
+
+/* STATS BAR */
+.statbar{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--wash)}
+.statbar .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:42px 28px}
+.stat{text-align:center}
+.stat .num{font-size:clamp(32px,3.6vw,48px);font-weight:600;letter-spacing:-.03em;color:var(--ink);line-height:1}
+.stat .lab{font-size:14px;color:var(--grey);margin-top:9px}
+
+/* SECTION HEAD */
+.shead{max-width:660px;margin:0 auto 56px;text-align:center}
+.shead p{margin-top:18px}
+.shead.left{margin-left:0;text-align:left}
+
+/* CARDS GRID */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px;transition:.3s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.card .ic{width:50px;height:50px;border-radius:13px;background:var(--wash-blue);display:grid;place-items:center;font-size:23px;margin-bottom:20px}
+.card h3{font-size:19px;font-weight:600;margin-bottom:10px}
+.card p{font-size:15px;color:var(--grey);line-height:1.55}
+.card .kpi{margin-top:14px;font-size:14px;font-weight:600;color:var(--blue)}
+
+/* 7 SYSTEMS DARK */
+.systems{background:var(--ink);color:#fff}
+.systems .kick{color:var(--blue-elec)}
+.systems .shead p{color:var(--grey-2)}
+.sysflow{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);overflow:hidden}
+.sysstep{background:#1D1D1F;padding:30px 24px;transition:.35s;position:relative;min-height:200px}
+.sysstep:hover{background:#26262A}
+.sysstep .idx{font-size:13px;font-weight:600;color:var(--blue-elec);margin-bottom:20px}
+.sysstep h3{font-size:20px;font-weight:600;margin-bottom:10px}
+.sysstep p{font-size:14px;color:var(--grey-2);line-height:1.55}
+.sysstep.hl{background:linear-gradient(160deg,#0071E3,#0257B0)}
+.sysstep.hl p{color:rgba(255,255,255,.85)}.sysstep.hl .idx{color:#fff}
+.sysstep .badge{position:absolute;top:24px;right:22px;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:rgba(255,255,255,.92);color:var(--blue-deep);padding:4px 9px;border-radius:6px}
+
+/* SECTORS */
+.sectors{background:var(--wash)}
+.secgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.seccard{background:#fff;border-radius:16px;padding:24px;transition:.3s;position:relative;display:block}
+.seccard:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.seccard .e{font-size:28px;display:block;margin-bottom:14px}
+.seccard h4{font-size:16.5px;font-weight:600;margin-bottom:4px}
+.seccard .m{font-size:13px;color:var(--grey)}
+.seccard .star{position:absolute;top:18px;right:18px;font-size:11px;font-weight:600;color:#B4530A;background:#FFF0E6;padding:3px 9px;border-radius:980px}
+
+/* CRM SPOTLIGHT */
+.spot{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.spot ul{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:24px}
+.spot li{display:flex;gap:12px;align-items:flex-start;font-size:16px}
+.spot li .ck{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-size:12px;margin-top:2px}
+.mock{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-lg);overflow:hidden}
+.mock .top{display:flex;align-items:center;gap:6px;padding:13px 15px;border-bottom:1px solid var(--line)}
+.mock .top i{width:11px;height:11px;border-radius:50%}
+.mock .top i:nth-child(1){background:#FF5F57}.mock .top i:nth-child(2){background:#FEBC2E}.mock .top i:nth-child(3){background:#28C840}
+.mock .top span{margin-left:10px;font-size:12.5px;color:var(--grey-2)}
+.mock .list{padding:15px}
+.mrow{display:flex;align-items:center;justify-content:space-between;padding:13px;border-radius:11px;margin-bottom:8px;background:var(--wash)}
+.mrow .who{display:flex;align-items:center;gap:11px}
+.mrow .av{width:32px;height:32px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:600}
+.mrow .who b{font-size:13.5px;font-weight:500;display:block}
+.mrow .who small{font-size:11.5px;color:var(--grey)}
+.tag{font-size:11px;font-weight:600;padding:4px 10px;border-radius:980px;white-space:nowrap}
+.tag.n{background:#E3F0FF;color:var(--blue-deep)}.tag.h{background:#FFF0E6;color:#B4530A}.tag.w{background:#E4F8ED;color:#0B7A43}
+
+/* TESTIMONIALS */
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.tcard{background:var(--wash);border-radius:var(--r);padding:30px}
+.tcard .stars{color:#FF9F0A;font-size:14px;letter-spacing:3px;margin-bottom:14px}
+.tcard p{font-size:15.5px;color:var(--ink);line-height:1.6;margin-bottom:20px}
+.tcard .by{display:flex;align-items:center;gap:12px}
+.tcard .av{width:40px;height:40px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:600;font-size:14px}
+.tcard .by b{font-size:14px;font-weight:600;display:block}
+.tcard .by small{font-size:12.5px;color:var(--grey)}
+
+/* CASE STUDIES */
+.caserow{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding:48px 0;border-bottom:1px solid var(--line)}
+.caserow:last-child{border-bottom:none}
+.caserow.rev .caseimg{order:-1}
+.casemetrics{display:flex;gap:32px;margin:22px 0}
+.casemetrics .m .n{font-size:34px;font-weight:700;letter-spacing:-.02em;color:var(--blue)}
+.casemetrics .m .l{font-size:13px;color:var(--grey);margin-top:2px}
+.caseimg{background:linear-gradient(150deg,var(--wash-blue),var(--wash));border-radius:var(--r);min-height:260px;display:grid;place-items:center;border:1px solid var(--line);padding:30px}
+
+/* FAQ */
+.faq{max-width:760px;margin:0 auto}
+.qa{border-bottom:1px solid var(--line);padding:22px 0}
+.qa summary{font-size:17px;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::after{content:"+";font-size:22px;color:var(--blue);font-weight:400}
+.qa[open] summary::after{content:"–"}
+.qa p{color:var(--grey);font-size:15.5px;margin-top:14px;line-height:1.6}
+
+/* BLOG */
+.bloggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.post{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;transition:.3s;display:block;background:#fff}
+.post:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.post .thumb{height:170px;background:linear-gradient(150deg,var(--blue-elec),var(--blue-deep));display:grid;place-items:center;color:#fff;font-size:40px}
+.post .thumb.g2{background:linear-gradient(150deg,#7A5AF8,#0257B0)}
+.post .thumb.g3{background:linear-gradient(150deg,#0B7A43,#0071E3)}
+.post .thumb.g4{background:linear-gradient(150deg,#B4530A,#1D1D1F)}
+.post .body{padding:22px}
+.post .cat{font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.04em}
+.post h3{font-size:18px;font-weight:600;margin:8px 0 8px;line-height:1.3}
+.post .meta{font-size:12.5px;color:var(--grey-2)}
+.post .exc{font-size:14px;color:var(--grey);margin-top:10px;line-height:1.5}
+
+/* ARTICLE */
+.article{max-width:720px;margin:0 auto;padding:60px 28px 40px}
+.article .cat{font-size:13px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.04em}
+.article h1{font-size:clamp(30px,4.5vw,44px);font-weight:600;letter-spacing:-.028em;line-height:1.12;margin:14px 0}
+.article .meta{font-size:14px;color:var(--grey-2);margin-bottom:36px;padding-bottom:24px;border-bottom:1px solid var(--line)}
+.article h2{font-size:26px;font-weight:600;margin:36px 0 14px;letter-spacing:-.02em}
+.article h3{font-size:20px;font-weight:600;margin:26px 0 10px}
+.article p{font-size:17px;color:#333;line-height:1.7;margin-bottom:18px}
+.article ul{margin:0 0 18px 22px}.article li{font-size:17px;color:#333;line-height:1.7;margin-bottom:8px}
+.article .callout{background:var(--wash-blue);border-radius:14px;padding:22px 24px;margin:26px 0;font-size:16px;color:var(--ink)}
+
+/* PAGE HEADER (interior) */
+.pagehead{padding:80px 0 50px;text-align:center;background:var(--wash)}
+.pagehead .lead{max-width:620px;margin:18px auto 0}
+
+/* FINAL CTA */
+.final .box{background:var(--ink);border-radius:30px;padding:80px 40px;color:#fff;text-align:center}
+.final .kick{color:var(--blue-elec)}
+.final h2{color:#fff;margin-bottom:16px}
+.final p{color:var(--grey-2);font-size:19px;max-width:520px;margin:0 auto 32px}
+
+/* FOOTER */
+footer{background:var(--wash);padding:60px 0 36px;font-size:13px}
+.foot{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}
+.foot .brand img{height:24px;margin-bottom:16px}
+.foot .desc{color:var(--grey);max-width:280px;line-height:1.6}
+.foot h5{font-size:12px;font-weight:600;color:var(--ink);margin-bottom:14px;text-transform:uppercase;letter-spacing:.04em}
+.foot a{display:block;color:var(--grey);margin-bottom:9px;transition:.2s}
+.foot a:hover{color:var(--blue)}
+.foot-bot{max-width:var(--maxw);margin:48px auto 0;padding:22px 28px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:var(--grey-2);flex-wrap:wrap;gap:10px}
+
+@media(max-width:900px){
+  section{padding:72px 0}
+  .hero-grid,.spot,.grid-3,.grid-2,.caserow,.bloggrid,.tgrid{grid-template-columns:1fr;gap:32px}
+  .caserow.rev .caseimg{order:0}
+  .sysflow,.secgrid,.grid-4{grid-template-columns:repeat(2,1fr)}
+  .statbar .wrap{grid-template-columns:repeat(2,1fr);gap:30px}
+  .navlinks{display:none}
+  .menutog{display:block}
+  .foot{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){
+  .sysflow,.secgrid,.grid-4{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr}
+  .casemetrics{gap:20px}
+}
+
+/* ============ MEGA MENU (déroulant par familles) ============ */
+.hasmega{position:static;display:flex;align-items:center}
+.megatrigger{display:inline-flex;align-items:center;gap:5px;cursor:pointer}
+.megatrigger .car{font-size:9px;transition:.2s}
+.hasmega:hover .megatrigger .car{transform:rotate(180deg)}
+.mega{position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);box-shadow:var(--shadow-lg);opacity:0;visibility:hidden;transform:translateY(-8px);transition:.22s;z-index:200}
+.hasmega:hover .mega,.mega:hover{opacity:1;visibility:visible;transform:none}
+.mega-inner{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:34px;padding:34px 28px}
+.mega-col h5{font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+.mega-col a{display:block;font-size:14.5px;color:var(--ink);opacity:.9;padding:7px 0;transition:.15s;font-weight:600}
+.mega-col a:hover{opacity:1;color:var(--blue);transform:translateX(2px)}
+.mega-col a small{display:block;font-weight:400;font-size:12px;color:var(--grey-2);margin-top:1px}
+.mega-foot{border-top:1px solid var(--line);background:var(--wash)}
+.mega-foot .fin{max-width:var(--maxw);margin:0 auto;padding:15px 28px;display:flex;justify-content:space-between;align-items:center}
+.mega-foot span{font-size:13.5px;color:var(--grey)}
+.anchor{scroll-margin-top:90px}
+@media(max-width:900px){.mega{display:none!important}.hasmega{display:none}}
+
+</style>
 </head>
 <body>
 <header>
   <div class="wrap nav">
-    <a href="../index.html" class="brand"><img src="../assets/logo-clair.svg" alt="Sevn Systems"></a>
+    <a href="index.html" class="brand"><svg width="360" height="72" viewBox="0 0 360 72" xmlns="http://www.w3.org/2000/svg">
+  <title>SE7N SYSTEMS — logo fond clair</title>
+  <text x="0" y="50" font-family="Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="42" font-weight="800" letter-spacing="0.5">
+    <tspan fill="#1D1D1F">SE</tspan><tspan fill="#1F8BFF">7</tspan><tspan fill="#1D1D1F">N </tspan><tspan fill="#1F8BFF">SYSTEMS</tspan>
+  </text>
+</svg>
+</a>
     <nav class="navlinks">
-      <a href="../methode.html">Méthode</a>
+      <a href="methode.html">Méthode</a>
       <div class="hasmega">
-        <a href="../secteurs.html" class="megatrigger">Secteurs <span class="car">▼</span></a>
+        <a href="secteurs.html" class="megatrigger">Secteurs <span class="car">▼</span></a>
         <div class="mega"><div class="mega-inner">
           <div class="mega-col"><h5>🩺 Santé &amp; Médical</h5>
-            <a href="../secteurs.html#dentaire">Dentaire<small>Implants, ortho, esthétique</small></a>
-            <a href="../secteurs.html#audio">Audioprothèse<small>Appareils, bilans auditifs</small></a>
+            <a href="secteurs.html#dentaire">Dentaire<small>Implants, ortho, esthétique</small></a>
+            <a href="secteurs.html#audio">Audioprothèse<small>Appareils, bilans auditifs</small></a>
           </div>
           <div class="mega-col"><h5>✨ Esthétique &amp; Beauté</h5>
-            <a href="../secteurs.html#esthetique">Médecine esthétique<small>Injections, laser</small></a>
-            <a href="../secteurs.html#chirurgie">Chirurgie esthétique<small>Interventions, greffe</small></a>
-            <a href="../secteurs.html#minceur">Beauté &amp; minceur<small>Cryolipolyse, soins corps</small></a>
+            <a href="secteurs.html#esthetique">Médecine esthétique<small>Injections, laser</small></a>
+            <a href="secteurs.html#chirurgie">Chirurgie esthétique<small>Interventions, greffe</small></a>
+            <a href="secteurs.html#minceur">Beauté &amp; minceur<small>Cryolipolyse, soins corps</small></a>
           </div>
           <div class="mega-col"><h5>⚡ Rénovation &amp; Énergie</h5>
-            <a href="../secteurs.html#pac">Pompe à chaleur<small>PAC air/eau, air/air</small></a>
-            <a href="../secteurs.html#solaire">Panneaux solaires<small>Photovoltaïque</small></a>
-            <a href="../secteurs.html#renovation">Rénovation &amp; isolation<small>Ampleur, MaPrimeRénov'</small></a>
+            <a href="secteurs.html#pac">Pompe à chaleur<small>PAC air/eau, air/air</small></a>
+            <a href="secteurs.html#solaire">Panneaux solaires<small>Photovoltaïque</small></a>
+            <a href="secteurs.html#renovation">Rénovation &amp; isolation<small>Ampleur, MaPrimeRénov'</small></a>
           </div>
           <div class="mega-col"><h5>🏢 Autres secteurs</h5>
-            <a href="../secteurs.html#immobilier">Immobilier<small>Achat, vente, mandats</small></a>
-            <a href="../secteurs.html#patrimoine">Patrimoine &amp; finance<small>SCPI, mutuelle senior</small></a>
-            <a href="../secteurs.html#formation">Formation &amp; écoles<small>Bachelor, MBA, CPF</small></a>
+            <a href="secteurs.html#immobilier">Immobilier<small>Achat, vente, mandats</small></a>
+            <a href="secteurs.html#patrimoine">Patrimoine &amp; finance<small>SCPI, mutuelle senior</small></a>
+            <a href="secteurs.html#formation">Formation &amp; écoles<small>Bachelor, MBA, CPF</small></a>
           </div>
         </div>
-        <div class="mega-foot"><div class="fin"><span>Votre secteur n'est pas listé ?</span><a href="../contact.html" class="btn ghost" style="padding:8px 16px">Parlons-en →</a></div></div>
+        <div class="mega-foot"><div class="fin"><span>Votre secteur n'est pas listé ?</span><a href="contact.html" class="btn ghost" style="padding:8px 16px">Parlons-en →</a></div></div>
         </div>
       </div>
-      <a href="../cas-clients.html">Cas clients</a>
-      <a href="../pourquoi.html">Pourquoi nous</a>
-      <a href="../blog.html">Blog</a>
+      <a href="cas-clients.html">Cas clients</a>
+      <a href="pourquoi.html">Pourquoi nous</a>
+      <a href="blog.html">Blog</a>
     </nav>
-    <div class="navright"><a href="../contact.html" class="btn">Devis gratuit</a>
+    <div class="navright"><a href="contact.html" class="btn">Devis gratuit</a>
       <button class="menutog" onclick="var n=document.querySelector('.navlinks');n.style.display=n.style.display==='flex'?'none':'flex'">☰</button></div>
   </div>
 </header>
@@ -79,14 +336,20 @@
   <h2>Le réflexe à installer</h2>
   <p>Faites de la vitesse de rappel une règle, pas une bonne intention. Un lead reçu doit être appelé dans les minutes qui suivent, pas « quand vous aurez le temps ». C'est souvent la différence entre un agenda qui se remplit et des leads qui dorment dans un tableur.</p>
 
-  <p style="margin-top:36px"><a href="../contact.html" class="btn lg">Recevoir mes leads en temps réel →</a></p>
+  <p style="margin-top:36px"><a href="contact.html" class="btn lg">Recevoir mes leads en temps réel →</a></p>
 </article>
 
 <footer>
   <div class="wrap foot">
-    <div class="brand"><img src="../assets/logo-clair.svg" alt="Sevn Systems"><p class="desc">Sept systèmes d'acquisition pour livrer des leads exclusifs aux professionnels, directement dans leur CRM.</p></div>
-    <div><h5>Produit</h5><a href="../methode.html">La méthode</a><a href="../secteurs.html">Secteurs</a><a href="../cas-clients.html">Cas clients</a><a href="../pourquoi.html">Pourquoi nous</a></div>
-    <div><h5>Ressources</h5><a href="../blog.html">Blog</a><a href="../contact.html">Devis gratuit</a><a href="mailto:hello@sevnsystems.com">hello@sevnsystems.com</a></div>
+    <div class="brand"><svg width="360" height="72" viewBox="0 0 360 72" xmlns="http://www.w3.org/2000/svg">
+  <title>SE7N SYSTEMS — logo fond clair</title>
+  <text x="0" y="50" font-family="Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="42" font-weight="800" letter-spacing="0.5">
+    <tspan fill="#1D1D1F">SE</tspan><tspan fill="#1F8BFF">7</tspan><tspan fill="#1D1D1F">N </tspan><tspan fill="#1F8BFF">SYSTEMS</tspan>
+  </text>
+</svg>
+<p class="desc">Sept systèmes d'acquisition pour livrer des leads exclusifs aux professionnels, directement dans leur CRM.</p></div>
+    <div><h5>Produit</h5><a href="methode.html">La méthode</a><a href="secteurs.html">Secteurs</a><a href="cas-clients.html">Cas clients</a><a href="pourquoi.html">Pourquoi nous</a></div>
+    <div><h5>Ressources</h5><a href="blog.html">Blog</a><a href="contact.html">Devis gratuit</a><a href="mailto:hello@sevnsystems.com">hello@sevnsystems.com</a></div>
     <div><h5>Légal</h5><a href="#">Mentions légales</a><a href="#">Confidentialité</a><a href="#">CGV</a></div>
   </div>
   <div class="foot-bot"><span>© 2026 Sevn Systems</span><span>sevnsystems.com</span></div>
