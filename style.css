@@ -366,3 +366,37 @@ footer{background:var(--wash);padding:60px 0 36px;font-size:13px}
 @media(max-width:900px){
   .casegrid{grid-template-columns:1fr}
 }
+
+/* ============================================================
+   RICH DETAIL COMPONENTS — before/after, comparison table,
+   timeline, embedded mini-form (used on sector + case pages)
+   ============================================================ */
+.dark-2col{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.dark-card{background:#26262A;border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:32px}
+.dark-card h3{color:#fff;font-size:18px;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.dark-card h3 .ico{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;font-size:14px;flex-shrink:0}
+.dark-card.bad h3 .ico{background:rgba(255,69,58,.15);color:#FF6961}
+.dark-card.good h3 .ico{background:rgba(31,139,255,.18);color:var(--blue-elec)}
+.dark-card p{color:var(--grey-2);font-size:15px;line-height:1.7}
+.dark-card ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.dark-card li{color:var(--grey-2);font-size:14.5px;line-height:1.5;display:flex;gap:10px}
+.dark-card li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--blue-elec);margin-top:8px;flex-shrink:0}
+
+.compare-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.compare-table th,.compare-table td{padding:16px 22px;text-align:left;font-size:15px}
+.compare-table thead th{background:var(--wash);font-size:12.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--grey);font-weight:700}
+.compare-table tbody tr{border-top:1px solid var(--line)}
+.compare-table td.before{color:var(--grey)}
+.compare-table td.after{color:var(--blue-deep);font-weight:700}
+
+.timeline{display:flex;justify-content:space-between;position:relative;padding:20px 0}
+.timeline::before{content:"";position:absolute;top:44px;left:0;right:0;height:2px;background:var(--line)}
+.tl-step{position:relative;text-align:center;flex:1;padding:0 8px}
+.tl-step .dot{width:14px;height:14px;border-radius:50%;background:var(--blue);margin:0 auto 16px;position:relative;z-index:1;box-shadow:0 0 0 5px var(--wash-blue)}
+.tl-step b{display:block;font-size:14.5px;margin-bottom:6px}
+.tl-step span{font-size:13px;color:var(--grey);line-height:1.5}
+@media(max-width:900px){.timeline{flex-direction:column;gap:28px}.timeline::before{display:none}}
+
+.mini-cta{background:var(--wash-blue);border:1px solid rgba(0,113,227,.15);border-radius:var(--r);padding:44px}
+.mini-cta .formcard{box-shadow:none;border:1px solid var(--line)}
+@media(max-width:900px){.dark-2col{grid-template-columns:1fr}.compare-table{font-size:13.5px}.compare-table th,.compare-table td{padding:12px 14px}}
