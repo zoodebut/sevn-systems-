@@ -112,8 +112,8 @@
 
 <script>
 /* ⚙️ Renseigne l'URL du CRM + la clé API après déploiement pour recevoir les leads. */
-const CRM_ENDPOINT = "";
-const CRM_API_KEY = "";
+const CRM_ENDPOINT = "https://crm.sevnsystems.com/api/leads";
+const CRM_API_KEY = "530e2a9184ff92702ab4fa008d80485a5277981b7241e8ed69ef9c257ce66635";
 async function submitLead(e){
   e.preventDefault();
   const form=e.target, msg=document.getElementById('formMsg');
