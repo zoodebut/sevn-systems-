@@ -101,3 +101,35 @@
     if (saved === 'en') applyLang('en');
   });
 })();
+
+/* ---- Formulaire de leads (CRM) ----
+   Un seul endroit à modifier pour TOUT le site : change l'URL ou la clé
+   ici, et chaque formulaire (accueil, contact, secteurs, cas clients)
+   en bénéficie automatiquement, sans toucher aux fichiers HTML. */
+const CRM_ENDPOINT = "https://crm.sevnsystems.com/api/leads";
+const CRM_API_KEY = "530e2a9184ff92702ab4fa008d80485a5277981b7241e8ed69ef9c257ce66635";
+
+async function submitLead(e) {
+  e.preventDefault();
+  const form = e.target;
+  const msg = form.querySelector('#formMsg') || document.getElementById('formMsg');
+  const data = Object.fromEntries(new FormData(form).entries());
+  data.source = 'site';
+  if (CRM_ENDPOINT) {
+    try {
+      await fetch(CRM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-api-key': CRM_API_KEY },
+        body: JSON.stringify(data)
+      });
+    } catch (err) { /* silencieux : le lead ne doit jamais bloquer l'UX */ }
+  }
+  form.style.display = 'none';
+  if (msg) {
+    msg.style.display = 'block';
+    msg.style.color = 'var(--blue)';
+    msg.style.fontSize = '15px';
+    msg.textContent = 'Merci ! Un expert vous rappelle sous 24h ouvrées.';
+  }
+  return false;
+}
