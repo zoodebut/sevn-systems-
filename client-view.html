@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sevn Systems · Client</title>
+<link rel="icon" href="/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#0071E3;--blue-deep:#0257B0;--blue-bright:#2D8CFF;
+    --ink:#1D1D1F;--grey:#6E6E73;--grey-2:#86868B;--line:#E8E8ED;
+    --wash:#F5F5F7;--wash-2:#EEF1F5;--white:#fff;
+    --new:#0071E3;--rappel:#B4530A;--rdv:#7A5AF8;--gagne:#0B7A43;--perdu:#86868B;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',-apple-system,sans-serif;background:var(--wash);color:var(--ink);-webkit-font-smoothing:antialiased;height:100vh;display:flex;flex-direction:column;overflow:hidden}
+  .topbar{background:rgba(255,255,255,.8);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;flex-shrink:0}
+  .logo{display:flex;align-items:center;gap:12px;font-weight:600;font-size:17px}
+  .logo img{height:20px}
+  .back{color:var(--grey);text-decoration:none;font-size:14px}
+  .btn{display:inline-flex;align-items:center;gap:7px;background:var(--blue);color:#fff;padding:9px 16px;border-radius:980px;font-weight:500;font-size:14px;border:none;cursor:pointer;font-family:inherit;transition:.2s}
+  .btn.ghost{background:var(--wash-2);color:var(--ink)}
+  .stats{display:flex;gap:10px;padding:16px 24px;flex-shrink:0}
+  .stat{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 18px;flex:1}
+  .stat .n{font-size:24px;font-weight:700;letter-spacing:-.02em}
+  .stat .l{font-size:12px;color:var(--grey);margin-top:2px}
+  .board{flex:1;display:flex;gap:14px;padding:0 24px 24px;overflow-x:auto;overflow-y:hidden}
+  .col{background:var(--wash-2);border-radius:16px;width:280px;min-width:280px;display:flex;flex-direction:column;max-height:100%}
+  .col-head{padding:14px 16px 10px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+  .col-head .name{font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%}
+  .dot.nouveau{background:var(--new)}.dot.a_rappeler{background:var(--rappel)}
+  .dot.rdv_pris{background:var(--rdv)}.dot.gagne{background:var(--gagne)}.dot.perdu{background:var(--perdu)}
+  .col-head .count{font-size:12px;color:var(--grey);background:#fff;padding:2px 9px;border-radius:980px;font-weight:600}
+  .col-body{padding:4px 10px 10px;overflow-y:auto;flex:1;display:flex;flex-direction:column;gap:8px}
+  .col-body.drag-over{background:rgba(0,113,227,.06);border-radius:12px}
+  .lead{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;cursor:grab;transition:.15s;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+  .lead:hover{box-shadow:0 4px 14px rgba(0,0,0,.08);transform:translateY(-1px)}
+  .lead.dragging{opacity:.4}
+  .lead .top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .lead .av{width:32px;height:32px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:600;flex-shrink:0}
+  .lead .nm{font-size:14px;font-weight:600;line-height:1.2}
+  .lead .meta{font-size:12px;color:var(--grey);line-height:1.5}
+  .empty{font-size:12.5px;color:var(--grey-2);text-align:center;padding:24px 10px}
+  .overlay{position:fixed;inset:0;background:rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:.2s;z-index:40}
+  .overlay.open{opacity:1;pointer-events:auto}
+  .panel{position:fixed;top:0;right:0;height:100%;width:420px;max-width:92vw;background:#fff;box-shadow:-20px 0 60px rgba(0,0,0,.15);transform:translateX(100%);transition:transform .28s cubic-bezier(.4,0,.2,1);z-index:50;display:flex;flex-direction:column}
+  .panel.open{transform:translateX(0)}
+  .panel-head{padding:22px 24px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+  .close{background:var(--wash-2);border:none;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:16px;color:var(--grey)}
+  .panel-body{padding:24px;overflow-y:auto;flex:1}
+  .fld{margin-bottom:16px}
+  .fld label{font-size:12px;font-weight:600;color:var(--grey);display:block;margin-bottom:6px;text-transform:uppercase;letter-spacing:.03em}
+  .fld input,.fld select,.fld textarea{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:11px;font-family:inherit;font-size:14.5px}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .panel-foot{padding:16px 24px;border-top:1px solid var(--line);display:flex;gap:10px}
+  .panel-foot .btn{flex:1;justify-content:center}
+  .saved{font-size:12.5px;color:var(--gagne);text-align:center;padding-top:8px;min-height:16px}
+
+  /* onglets */
+  .tabs{display:flex;gap:4px}
+  .tab{padding:8px 14px;border-radius:980px;font-size:14px;font-weight:500;color:var(--grey);cursor:pointer;border:none;background:none;font-family:inherit}
+  .tab.active{background:var(--wash-2);color:var(--ink)}
+
+  /* vue campagnes */
+  .campaigns-view{flex:1;overflow-y:auto;padding:0 24px 24px}
+  .funnel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 24px;display:flex;gap:22px;margin-bottom:18px}
+  .funnel-stage{flex:1;min-width:0}
+  .funnel-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+  .funnel-stage .n{font-size:22px;font-weight:700;letter-spacing:-.02em}
+  .funnel-stage .l{font-size:12px;color:var(--grey)}
+  .funnel-bar{height:8px;border-radius:99px;background:var(--wash-2);overflow:hidden}
+  .funnel-bar .fill{height:100%;border-radius:99px;transition:width .4s ease}
+  .funnel-drop{font-size:11px;color:var(--grey-2);margin-top:6px}
+
+  .camp-toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+  .camp-toolbar-title{font-size:15px;font-weight:600}
+  .camp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+  .camp-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;cursor:pointer;transition:.15s}
+  .camp-card:hover{box-shadow:0 6px 20px rgba(0,0,0,.08);transform:translateY(-1px)}
+  .camp-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;gap:8px}
+  .camp-name{font-weight:600;font-size:15px;line-height:1.3}
+  .camp-plat{font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:980px;text-transform:uppercase;letter-spacing:.03em;white-space:nowrap}
+  .camp-plat.meta{background:#EAF2FF;color:#0257B0}
+  .camp-plat.google{background:#FEF3E2;color:#B4530A}
+  .camp-plat.autre{background:var(--wash-2);color:var(--grey)}
+  .camp-plat.paused{background:#FFF1E0;color:#B4530A}
+  .camp-metrics{display:grid;grid-template-columns:1fr 1fr;gap:12px 10px;margin-bottom:12px}
+  .camp-metric .v{font-size:18px;font-weight:700;letter-spacing:-.01em}
+  .camp-metric .l{font-size:11px;color:var(--grey);margin-top:1px}
+  .roi-pos{color:var(--gagne)}.roi-neg{color:#D70015}
+  .budget-row{display:flex;justify-content:space-between;font-size:11.5px;color:var(--grey);margin-bottom:5px}
+  .budget-bar{height:6px;background:var(--wash-2);border-radius:99px;overflow:hidden}
+  .budget-bar .fill{height:100%;background:var(--blue);border-radius:99px}
+  .camp-empty{grid-column:1/-1;text-align:center;padding:50px 20px;color:var(--grey-2);font-size:14px}
+  .unattributed{font-size:12.5px;color:var(--grey);margin-top:14px;text-align:center}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="logo"><a class="back" href="/clients">← Clients</a></div>
+  <div id="clientName" style="font-weight:600"></div>
+  <div class="tabs">
+    <button class="tab active" id="tabPipeline" onclick="switchTab('pipeline')">Pipeline</button>
+    <button class="tab" id="tabCampaigns" onclick="switchTab('campaigns')">Campagnes</button>
+  </div>
+</div>
+
+<div class="stats" id="stats"></div>
+<div class="board" id="board"></div>
+
+<div class="campaigns-view" id="campaignsView" style="display:none">
+  <div class="funnel" id="funnel"></div>
+  <div class="camp-toolbar">
+    <div class="camp-toolbar-title">Performance par campagne</div>
+    <button class="btn" onclick="openCampaignForm()">+ Nouvelle campagne</button>
+  </div>
+  <div class="camp-grid" id="campGrid"></div>
+  <div class="unattributed" id="unattributed"></div>
+</div>
+
+<div class="overlay" id="overlay" onclick="closePanel()"></div>
+<div class="panel" id="panel">
+  <div class="panel-head"><h2 id="panelTitle">Lead</h2><button class="close" onclick="closePanel()">✕</button></div>
+  <div class="panel-body">
+    <div class="fld"><label>Nom / entreprise</label><input id="f_nom"></div>
+    <div class="row2">
+      <div class="fld"><label>Email</label><input id="f_email" type="email"></div>
+      <div class="fld"><label>Téléphone</label><input id="f_tel"></div>
+    </div>
+    <div class="row2">
+      <div class="fld"><label>Secteur</label><input id="f_secteur"></div>
+      <div class="fld"><label>Ville / zone</label><input id="f_zone"></div>
+    </div>
+    <div class="fld"><label>Statut</label>
+      <select id="f_statut" onchange="toggleConditional()">
+        <option value="nouveau">Nouveau</option><option value="a_rappeler">À rappeler</option>
+        <option value="rdv_pris">RDV pris</option><option value="gagne">Gagné</option><option value="perdu">Perdu</option>
+      </select>
+    </div>
+    <div class="fld" id="meetingRow" style="display:none"><label>RDV programmé</label><input id="f_meeting" readonly style="background:var(--wash);color:var(--grey)"></div>
+    <div class="fld"><label>Campagne</label><select id="f_campaign"><option value="">Non attribué</option></select></div>
+    <div class="fld" id="dealRow" style="display:none"><label>Montant du deal (€)</label><input id="f_deal" type="number"></div>
+    <div class="fld" id="lostRow" style="display:none"><label>Raison (si perdu)</label><input id="f_lost"></div>
+    <div class="fld"><label>Notes</label><textarea id="f_notes" style="min-height:90px"></textarea></div>
+    <div id="customFieldsHolder"></div>
+    <div class="saved" id="saved"></div>
+  </div>
+  <div class="panel-foot">
+    <button class="btn ghost" id="delBtn" onclick="delLead()">🗑 Supprimer</button>
+    <button class="btn" onclick="saveLead()">Enregistrer</button>
+  </div>
+</div>
+
+<div class="overlay" id="overlay2" onclick="closeCampaignPanel()"></div>
+<div class="panel" id="panel2">
+  <div class="panel-head"><h2 id="campPanelTitle">Nouvelle campagne</h2><button class="close" onclick="closeCampaignPanel()">✕</button></div>
+  <div class="panel-body">
+    <div class="fld"><label>Nom de la campagne</label><input id="c_nom" placeholder="Ex : Esthétique — Île-de-France"></div>
+    <div class="row2">
+      <div class="fld"><label>Plateforme</label>
+        <select id="c_plateforme"><option value="meta">Meta</option><option value="google">Google</option><option value="autre">Autre</option></select>
+      </div>
+      <div class="fld"><label>Statut</label>
+        <select id="c_statut"><option value="active">Active</option><option value="pause">En pause</option><option value="terminee">Terminée</option></select>
+      </div>
+    </div>
+    <div class="fld"><label>Budget dépensé (€)</label><input id="c_budget" type="number" placeholder="1200"></div>
+    <div class="fld"><label>ID campagne Meta/Google (optionnel)</label><input id="c_meta_id" placeholder="Pour l'attribution automatique des leads"></div>
+    <div class="saved" id="campSaved"></div>
+  </div>
+  <div class="panel-foot">
+    <button class="btn ghost" id="campDelBtn" onclick="deleteCampaign()">🗑 Supprimer</button>
+    <button class="btn" onclick="saveCampaign()">Enregistrer</button>
+  </div>
+</div>
+
+<script>
+function toggleConditional(){
+  const s = document.getElementById('f_statut').value;
+  document.getElementById('dealRow').style.display = s==='gagne' ? '' : 'none';
+  document.getElementById('lostRow').style.display = s==='perdu' ? '' : 'none';
+}
+function fmtMeeting(iso){ if(!iso) return ''; return new Date(iso).toLocaleString('fr-FR',{weekday:'long',day:'2-digit',month:'long',hour:'2-digit',minute:'2-digit'}); }
+</script>
+
+<script>
+const clientId = location.pathname.split('/').pop();
+const COLS = [
+  {key:'nouveau',label:'Nouveau'},{key:'a_rappeler',label:'À rappeler'},
+  {key:'rdv_pris',label:'RDV pris'},{key:'gagne',label:'Gagné'},{key:'perdu',label:'Perdu'}
+];
+let leads = [], stats = null, current = null, clientCustomFields = [];
+function esc(s){return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function initials(l){ const s=(l.nom||l.email||'?').trim(); const p=s.split(' '); return ((p[0]?.[0]||'')+(p[1]?.[0]||'')).toUpperCase()||s.slice(0,2).toUpperCase(); }
+
+async function loadClientInfo(){
+  const r = await fetch('/api/clients');
+  if(r.status===401){ location.href='/login'; return; }
+  const clients = await r.json();
+  const c = clients.find(x=>x.id===clientId);
+  document.getElementById('clientName').textContent = c ? c.nom : 'Client introuvable';
+  clientCustomFields = c && c.custom_fields ? c.custom_fields : [];
+  renderCustomFieldInputs();
+}
+function renderCustomFieldInputs(){
+  const holder = document.getElementById('customFieldsHolder');
+  if(!holder) return;
+  holder.innerHTML = clientCustomFields.map(f => `<div class="fld"><label>${esc(f.label)}</label><input data-custom-key="${f.key}"></div>`).join('');
+}
+async function load(){
+  const r = await fetch('/api/clients/'+clientId+'/leads');
+  if(r.status===401){ location.href='/login'; return; }
+  leads = await r.json();
+  const sr = await fetch('/api/clients/'+clientId+'/stats');
+  stats = sr.ok ? await sr.json() : null;
+  render();
+}
+function render(){
+  const st = document.getElementById('stats');
+  const total = leads.length, g = leads.filter(l=>l.statut==='gagne').length,
+        rdv = leads.filter(l=>l.statut==='rdv_pris').length, nouveau = leads.filter(l=>l.statut==='nouveau').length;
+  st.innerHTML = `
+    <div class="stat"><div class="n">${total}</div><div class="l">Leads au total</div></div>
+    <div class="stat"><div class="n" style="color:var(--new)">${nouveau}</div><div class="l">Nouveaux</div></div>
+    <div class="stat"><div class="n" style="color:var(--rdv)">${rdv}</div><div class="l">RDV pris</div></div>
+    <div class="stat"><div class="n" style="color:var(--gagne)">${g}</div><div class="l">Gagnés</div></div>
+    <div class="stat"><div class="n" style="color:var(--gagne)">${stats && stats.revenue_total ? stats.revenue_total.toLocaleString('fr-FR')+' €' : '—'}</div><div class="l">CA généré</div></div>
+    <div class="stat"><div class="n">${stats && stats.conversion_rate!==null ? stats.conversion_rate+'%' : '—'}</div><div class="l">Taux de conversion</div></div>`;
+  const board = document.getElementById('board'); board.innerHTML='';
+  COLS.forEach(col=>{
+    const items = leads.filter(l=>l.statut===col.key);
+    const el = document.createElement('div'); el.className='col';
+    el.innerHTML = `<div class="col-head"><div class="name"><span class="dot ${col.key}"></span>${col.label}</div><span class="count">${items.length}</span></div><div class="col-body" data-col="${col.key}"></div>`;
+    const body = el.querySelector('.col-body');
+    if(items.length===0) body.innerHTML = '<div class="empty">Aucun lead</div>';
+    items.forEach(l=>body.appendChild(card(l)));
+    body.addEventListener('dragover', e=>{e.preventDefault(); body.classList.add('drag-over');});
+    body.addEventListener('dragleave', ()=>body.classList.remove('drag-over'));
+    body.addEventListener('drop', async e=>{
+      e.preventDefault(); body.classList.remove('drag-over');
+      const id = e.dataTransfer.getData('id');
+      const lead = leads.find(x=>x.id===id);
+      if(lead && lead.statut!==col.key){
+        lead.statut=col.key; render();
+        await fetch(`/api/clients/${clientId}/leads/${id}`,{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify({statut:col.key})});
+      }
+    });
+    board.appendChild(el);
+  });
+}
+function card(l){
+  const c = document.createElement('div'); c.className='lead'; c.draggable=true;
+  const date = new Date(l.created_at).toLocaleDateString('fr-FR',{day:'2-digit',month:'short'});
+  const meetingBadge = l.meeting_at ? `<div class="meta" style="color:var(--rdv);font-weight:600">📅 ${fmtMeeting(l.meeting_at)}</div>` : '';
+  const dealBadge = (l.statut==='gagne' && l.deal_value) ? `<div class="meta" style="color:var(--gagne);font-weight:600">${Number(l.deal_value).toLocaleString('fr-FR')} €</div>` : '';
+  c.innerHTML = `<div class="top"><div class="av">${initials(l)}</div><div><div class="nm">${esc(l.nom)||'—'}</div><div class="meta">${esc(l.telephone)||esc(l.email)||''}</div></div></div><div class="meta">${esc(l.zone)?esc(l.zone)+' · ':''}${date}</div>${meetingBadge}${dealBadge}`;
+  c.addEventListener('click', ()=>openLead(l));
+  c.addEventListener('dragstart', e=>{e.dataTransfer.setData('id', l.id); c.classList.add('dragging');});
+  c.addEventListener('dragend', ()=>c.classList.remove('dragging'));
+  return c;
+}
+function fill(l){
+  document.getElementById('f_nom').value=l.nom||''; document.getElementById('f_email').value=l.email||'';
+  document.getElementById('f_tel').value=l.telephone||''; document.getElementById('f_secteur').value=l.secteur||'';
+  document.getElementById('f_zone').value=l.zone||''; document.getElementById('f_statut').value=l.statut||'nouveau';
+  document.getElementById('f_notes').value=l.notes||'';
+  document.getElementById('f_deal').value=l.deal_value||''; document.getElementById('f_lost').value=l.lost_reason||'';
+  document.getElementById('f_meeting').value=fmtMeeting(l.meeting_at);
+  document.getElementById('meetingRow').style.display = l.meeting_at ? '' : 'none';
+  const campSel = document.getElementById('f_campaign');
+  campSel.innerHTML = '<option value="">Non attribué</option>' + campaignsCache.map(c=>`<option value="${c.id}">${esc(c.nom)}</option>`).join('');
+  campSel.value = l.campaign_id || '';
+  document.getElementById('saved').textContent='';
+  toggleConditional();
+  renderCustomFieldInputs();
+  const custom = l.custom || {};
+  document.querySelectorAll('[data-custom-key]').forEach(inp => { inp.value = custom[inp.dataset.customKey] || ''; });
+}
+function openLead(l){ current=l; document.getElementById('panelTitle').textContent=l.nom||'Lead'; fill(l); document.getElementById('overlay').classList.add('open'); document.getElementById('panel').classList.add('open'); }
+function closePanel(){ document.getElementById('overlay').classList.remove('open'); document.getElementById('panel').classList.remove('open'); }
+function collect(){
+  const custom = {};
+  document.querySelectorAll('[data-custom-key]').forEach(inp => { custom[inp.dataset.customKey] = inp.value; });
+  return {nom:f_nom.value,email:f_email.value,telephone:f_tel.value,secteur:f_secteur.value,zone:f_zone.value,statut:f_statut.value,notes:f_notes.value,deal_value:f_deal.value?Number(f_deal.value):null,lost_reason:f_lost.value,custom,campaign_id:document.getElementById('f_campaign').value||null};
+}
+async function saveLead(){
+  if(!current) return;
+  await fetch(`/api/clients/${clientId}/leads/${current.id}`,{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify(collect())});
+  document.getElementById('saved').textContent='Enregistré ✓'; await load(); setTimeout(closePanel,500);
+}
+async function delLead(){
+  if(!current || !confirm('Supprimer ce lead ?')) return;
+  await fetch(`/api/clients/${clientId}/leads/${current.id}`,{method:'DELETE'});
+  closePanel(); load();
+}
+/* ---------------- Onglets Pipeline / Campagnes ---------------- */
+let currentCamp = null, campaignsCache = [];
+function switchTab(tab){
+  document.getElementById('tabPipeline').classList.toggle('active', tab==='pipeline');
+  document.getElementById('tabCampaigns').classList.toggle('active', tab==='campaigns');
+  document.getElementById('board').style.display = tab==='pipeline' ? '' : 'none';
+  document.getElementById('campaignsView').style.display = tab==='campaigns' ? '' : 'none';
+  if(tab==='campaigns') loadCampaigns();
+}
+async function loadCampaigns(){
+  const r = await fetch(`/api/clients/${clientId}/campaigns/stats`);
+  if(!r.ok) return;
+  const data = await r.json();
+  campaignsCache = data.campaigns;
+  renderFunnel();
+  renderCampaignCards(data.campaigns);
+  document.getElementById('unattributed').textContent = data.unattributed_count
+    ? `${data.unattributed_count} lead(s) non rattaché(s) à une campagne — clique un lead dans le Pipeline pour l'attribuer.`
+    : '';
+}
+function renderFunnel(){
+  const total = leads.length;
+  const rdv = leads.filter(l=>['rdv_pris','gagne','perdu'].includes(l.statut) || l.meeting_at).length;
+  const gagne = leads.filter(l=>l.statut==='gagne').length;
+  const stages = [
+    {label:'Leads reçus', n: total, color:'var(--new)'},
+    {label:'RDV pris', n: rdv, color:'var(--rdv)'},
+    {label:'Clients gagnés', n: gagne, color:'var(--gagne)'}
+  ];
+  const max = Math.max(total, 1);
+  const f = document.getElementById('funnel');
+  f.innerHTML = stages.map((s,i)=>{
+    const pct = Math.round((s.n/max)*100);
+    const dropText = i===0 ? '' : `<div class="funnel-drop">${stages[i-1].n ? Math.round((s.n/stages[i-1].n)*100) : 0}% de l'étape précédente</div>`;
+    return `<div class="funnel-stage">
+      <div class="funnel-top"><span class="n">${s.n}</span><span class="l">${s.label}</span></div>
+      <div class="funnel-bar"><div class="fill" style="width:${pct}%;background:${s.color}"></div></div>
+      ${dropText}
+    </div>`;
+  }).join('');
+}
+function platLabel(p){ return p==='meta'?'Meta':(p==='google'?'Google':'Autre'); }
+function renderCampaignCards(camps){
+  const grid = document.getElementById('campGrid');
+  if(!camps.length){ grid.innerHTML = '<div class="camp-empty">Aucune campagne pour l\'instant — clique « + Nouvelle campagne » pour commencer à suivre le ROI.</div>'; return; }
+  grid.innerHTML = '';
+  camps.forEach(c=>{
+    const el = document.createElement('div'); el.className='camp-card';
+    const roiClass = c.roi===null ? '' : (c.roi>=0 ? 'roi-pos' : 'roi-neg');
+    const roiText = c.roi===null ? '—' : (c.roi>=0?'+':'')+c.roi+'%';
+    const platClass = c.statut==='pause' ? 'paused' : (c.plateforme||'autre');
+    const budgetPct = c.budget ? Math.min(100, Math.round((c.leads_count>0?1:0)*100)) : 0;
+    el.innerHTML = `
+      <div class="camp-head">
+        <div class="camp-name">${esc(c.nom)}</div>
+        <span class="camp-plat ${platClass}">${c.statut==='pause'?'Pause':platLabel(c.plateforme)}</span>
+      </div>
+      <div class="camp-metrics">
+        <div class="camp-metric"><div class="v">${c.leads_count}</div><div class="l">Leads</div></div>
+        <div class="camp-metric"><div class="v">${c.conversion_rate!==null?c.conversion_rate+'%':'—'}</div><div class="l">Conversion</div></div>
+        <div class="camp-metric"><div class="v">${c.cost_per_lead!==null?c.cost_per_lead.toLocaleString('fr-FR')+' €':'—'}</div><div class="l">Coût / lead</div></div>
+        <div class="camp-metric"><div class="v ${roiClass}">${roiText}</div><div class="l">ROI</div></div>
+      </div>
+      <div class="budget-row"><span>${Number(c.budget).toLocaleString('fr-FR')} € dépensés</span><span>${c.revenue.toLocaleString('fr-FR')} € générés</span></div>
+      <div class="budget-bar"><div class="fill" style="width:${budgetPct}%"></div></div>
+    `;
+    el.addEventListener('click', ()=>openCampaignEdit(c));
+    grid.appendChild(el);
+  });
+}
+function openCampaignForm(){
+  currentCamp = null;
+  document.getElementById('campPanelTitle').textContent = 'Nouvelle campagne';
+  document.getElementById('campDelBtn').style.display = 'none';
+  document.getElementById('c_nom').value=''; document.getElementById('c_plateforme').value='meta';
+  document.getElementById('c_statut').value='active'; document.getElementById('c_budget').value='';
+  document.getElementById('c_meta_id').value=''; document.getElementById('campSaved').textContent='';
+  document.getElementById('overlay2').classList.add('open'); document.getElementById('panel2').classList.add('open');
+}
+function openCampaignEdit(c){
+  currentCamp = c;
+  document.getElementById('campPanelTitle').textContent = c.nom;
+  document.getElementById('campDelBtn').style.display = '';
+  document.getElementById('c_nom').value=c.nom; document.getElementById('c_plateforme').value=c.plateforme||'meta';
+  document.getElementById('c_statut').value=c.statut||'active'; document.getElementById('c_budget').value=c.budget||'';
+  document.getElementById('c_meta_id').value=c.meta_campaign_id||''; document.getElementById('campSaved').textContent='';
+  document.getElementById('overlay2').classList.add('open'); document.getElementById('panel2').classList.add('open');
+}
+function closeCampaignPanel(){ document.getElementById('overlay2').classList.remove('open'); document.getElementById('panel2').classList.remove('open'); }
+async function saveCampaign(){
+  const body = {
+    nom: document.getElementById('c_nom').value,
+    plateforme: document.getElementById('c_plateforme').value,
+    statut: document.getElementById('c_statut').value,
+    budget: document.getElementById('c_budget').value ? Number(document.getElementById('c_budget').value) : 0,
+    meta_campaign_id: document.getElementById('c_meta_id').value
+  };
+  if(!body.nom){ document.getElementById('campSaved').textContent = 'Le nom est requis'; return; }
+  if(currentCamp){
+    await fetch(`/api/clients/${clientId}/campaigns/${currentCamp.id}`,{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  } else {
+    await fetch(`/api/clients/${clientId}/campaigns`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  }
+  document.getElementById('campSaved').textContent = 'Enregistré ✓';
+  await loadCampaigns(); setTimeout(closeCampaignPanel, 500);
+}
+async function deleteCampaign(){
+  if(!currentCamp || !confirm('Supprimer cette campagne ? Les leads déjà reçus resteront dans le pipeline.')) return;
+  await fetch(`/api/clients/${clientId}/campaigns/${currentCamp.id}`,{method:'DELETE'});
+  closeCampaignPanel(); loadCampaigns();
+}
+
+loadClientInfo(); load(); loadCampaigns(); setInterval(load, 30000);
+</script>
+</body>
+</html>
