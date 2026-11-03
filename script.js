@@ -2,6 +2,18 @@
    SEVN SYSTEMS — script global (toutes les pages)
    ============================================================ */
 
+/* ---- Promesse de rapidité, affichée sur toutes les pages ---- */
+(function () {
+  if (document.querySelector('.sevn-speedbar')) return;
+  var style = document.createElement('style');
+  style.textContent = '.sevn-speedbar{background:#1D1D1F;color:#fff;text-align:center;padding:8px 20px;font-size:12.5px;font-weight:500;letter-spacing:.01em}.sevn-speedbar strong{color:#58A6FF;font-weight:600}.sevn-speedbar .sep{color:#68686d;margin:0 10px}@media(max-width:620px){.sevn-speedbar{font-size:11.5px;padding:8px 12px}.sevn-speedbar .optional{display:none}.sevn-speedbar .sep{margin:0 6px}}';
+  document.head.appendChild(style);
+  var bar = document.createElement('div');
+  bar.className = 'sevn-speedbar';
+  bar.innerHTML = '<span data-fr="Première version opérationnelle sous <strong>48 h</strong>" data-en="First operational version within <strong>48 hours</strong>" data-html>Première version opérationnelle sous <strong>48 h</strong></span><span class="optional"><span class="sep">•</span><span data-fr="Communication directe" data-en="Direct communication">Communication directe</span><span class="sep">•</span><span data-fr="Changements rapides" data-en="Fast changes">Changements rapides</span></span>';
+  document.body.insertBefore(bar, document.body.firstChild);
+})();
+
 /* ---- Scroll reveal ----
    Auto-tags common repeating blocks (cards, sector tiles, blog posts,
    testimonials, case rows, stats) so every page gets the fade/rise-in

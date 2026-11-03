@@ -52,11 +52,12 @@ section{padding:100px 0}
 /* NAV */
 header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.75);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.06)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-.brand img{height:26px}
-.navlinks{display:flex;gap:30px}
-.navlinks a{font-size:14px;font-weight:400;color:var(--ink);opacity:.82;transition:.2s}
+.brand{display:flex;align-items:center;flex-shrink:0}
+.brand img,.brand svg{height:23px;width:auto;display:block}
+.navlinks{display:flex;gap:21px;align-items:center}
+.navlinks a{font-size:13.5px;font-weight:400;color:var(--ink);opacity:.82;transition:.2s;white-space:nowrap}
 .navlinks a:hover,.navlinks a.active{opacity:1;color:var(--blue)}
-.navright{display:flex;align-items:center;gap:16px}
+.navright{display:flex;align-items:center;gap:12px;flex-shrink:0}
 .btn{display:inline-flex;align-items:center;gap:7px;background:var(--blue);color:#fff;padding:11px 20px;border-radius:980px;font-weight:500;font-size:14.5px;border:none;cursor:pointer;font-family:inherit;transition:.25s;white-space:nowrap}
 .btn:hover{background:var(--blue-deep)}
 .btn.lg{padding:15px 28px;font-size:16.5px}
@@ -323,9 +324,10 @@ footer{background:var(--wash);padding:60px 0 36px;font-size:13px}
     <div>
       <span class="pill"><span class="d"></span><span data-fr="Acquisition · CRM · Pilotage commercial" data-en="Acquisition · CRM · Sales operations">Acquisition · CRM · Pilotage commercial</span></span>
       <h1 class="display"><span data-fr="Votre acquisition." data-en="Your acquisition.">Votre acquisition.</span> <span class="fade" data-fr="Construite sur mesure." data-en="Built around your business.">Construite sur mesure.</span></h1>
-      <p class="lead" data-fr="Nous concevons un système complet adapté à votre marché, votre offre et votre processus de vente : campagnes, pages de conversion, qualification, CRM, relances et mesure de la performance. L’objectif : mieux transformer vos opportunités et maximiser le retour sur chaque euro investi." data-en="We build a complete system around your market, offer and sales process: campaigns, conversion pages, qualification, CRM, follow-ups and performance tracking. The goal: turn more opportunities into revenue and maximize the return on every dollar invested.">Nous concevons un système complet adapté à votre marché, votre offre et votre processus de vente : campagnes, pages de conversion, qualification, CRM, relances et mesure de la performance. L’objectif : mieux transformer vos opportunités et maximiser le retour sur chaque euro investi.</p>
+      <p class="lead" data-fr="Nous concevons et lançons rapidement un système complet adapté à votre marché, votre offre et votre processus de vente : campagnes, pages de conversion, qualification, CRM, relances et mesure de la performance. Vous échangez directement avec nous, les décisions sont prises vite et une première version opérationnelle peut être livrée sous 48 h." data-en="We rapidly design and launch a complete system around your market, offer and sales process: campaigns, conversion pages, qualification, CRM, follow-ups and performance tracking. You work directly with us, decisions happen fast, and a first operational version can be delivered within 48 hours.">Nous concevons et lançons rapidement un système complet adapté à votre marché, votre offre et votre processus de vente : campagnes, pages de conversion, qualification, CRM, relances et mesure de la performance. Vous échangez directement avec nous, les décisions sont prises vite et une première version opérationnelle peut être livrée sous 48 h.</p>
       <div class="trust-row">
         <span class="chip" data-fr="🧩 100% sur mesure" data-en="🧩 Fully bespoke">🧩 100% sur mesure</span>
+        <span class="chip" data-fr="⚡ Première version sous 48 h" data-en="⚡ First version within 48h">⚡ Première version sous 48 h</span>
         <span class="chip" data-fr="🎯 Ciblage &amp; qualification" data-en="🎯 Targeting &amp; qualification" data-html>🎯 Ciblage &amp; qualification</span>
         <span class="chip" data-fr="⚙️ CRM &amp; relances" data-en="⚙️ CRM &amp; follow-ups" data-html>⚙️ CRM &amp; relances</span>
         <span class="chip" data-fr="📊 ROI mesurable" data-en="📊 Measurable ROI">📊 ROI mesurable</span>
@@ -359,8 +361,8 @@ footer{background:var(--wash);padding:60px 0 36px;font-size:13px}
   <div class="wrap">
     <div class="stat"><div class="num" style="color:var(--blue)" data-fr="Sur mesure" data-en="Bespoke">Sur mesure</div><div class="lab" data-fr="selon votre activité et votre offre" data-en="for your business and offer">selon votre activité et votre offre</div></div>
     <div class="stat"><div class="num" data-fr="Complet" data-en="End-to-end">Complet</div><div class="lab" data-fr="de la campagne au suivi commercial" data-en="from campaign to sales follow-up">de la campagne au suivi commercial</div></div>
-    <div class="stat"><div class="num" data-fr="Connecté" data-en="Connected">Connecté</div><div class="lab" data-fr="à votre CRM et vos outils" data-en="to your CRM and tools">à votre CRM et vos outils</div></div>
-    <div class="stat"><div class="num" data-fr="Mesurable" data-en="Measurable">Mesurable</div><div class="lab" data-fr="pour piloter les coûts et le ROI" data-en="to track costs and ROI">pour piloter les coûts et le ROI</div></div>
+    <div class="stat"><div class="num" data-fr="48 h" data-en="48h">48 h</div><div class="lab" data-fr="pour une première version opérationnelle" data-en="to a first operational version">pour une première version opérationnelle</div></div>
+    <div class="stat"><div class="num" data-fr="Direct" data-en="Direct">Direct</div><div class="lab" data-fr="un seul interlocuteur, des décisions rapides" data-en="one point of contact, faster decisions">un seul interlocuteur, des décisions rapides</div></div>
   </div>
 </div>
 
