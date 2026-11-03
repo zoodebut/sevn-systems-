@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRM sur mesure & automatisation | Sevn Systems</title>
+<meta name="description" content="Sevn Systems conçoit des CRM et systèmes commerciaux sur mesure : pipeline, automatisations, intégrations et tableaux de bord adaptés à votre entreprise.">
+<link rel="icon" type="image/svg+xml" href="symbole.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .crm-hero{padding:96px 0 84px;background:linear-gradient(180deg,#fff 0%,var(--wash-blue) 100%)}
+  .crm-hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:64px;align-items:center}
+  .crm-hero h1{max-width:13ch}
+  .crm-hero .lead{max-width:50ch;margin:24px 0 32px}
+  .crm-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .crm-note{font-size:13px;color:var(--grey);margin-top:18px}
+  .ui-shell{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-lg);overflow:hidden;transform:rotate(1deg)}
+  .ui-head{display:flex;justify-content:space-between;align-items:center;padding:17px 20px;border-bottom:1px solid var(--line)}
+  .ui-dots{display:flex;gap:6px}.ui-dots i{width:10px;height:10px;border-radius:50%;background:var(--line)}
+  .ui-dots i:first-child{background:#FF5F57}.ui-dots i:nth-child(2){background:#FEBC2E}.ui-dots i:nth-child(3){background:#28C840}
+  .ui-head span{font-size:12px;color:var(--grey)}
+  .ui-body{display:grid;grid-template-columns:80px 1fr;min-height:330px}
+  .ui-side{background:var(--ink);padding:18px 14px;display:flex;flex-direction:column;gap:12px}
+  .ui-side i{height:9px;border-radius:10px;background:rgba(255,255,255,.16)}.ui-side i:first-child{background:var(--blue-elec)}
+  .ui-main{padding:24px}.ui-main h4{font-size:15px;margin-bottom:18px}
+  .ui-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
+  .ui-kpi{background:var(--wash);padding:13px;border-radius:11px}.ui-kpi b{font-size:20px;display:block;color:var(--blue)}.ui-kpi small{font-size:10px;color:var(--grey)}
+  .ui-lead{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+  .ui-lead b{font-size:12px;display:block}.ui-lead small{font-size:10px;color:var(--grey)}
+  .ui-status{font-size:9px;font-weight:600;padding:4px 8px;border-radius:20px;background:#E4F8ED;color:#0B7A43}
+  .problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .problem{padding:28px;border:1px solid var(--line);border-radius:var(--r);background:#fff}
+  .problem .n{font-size:13px;color:var(--blue);font-weight:600;margin-bottom:18px}.problem h3{font-size:20px;margin-bottom:10px}.problem p{font-size:15px;color:var(--grey)}
+  .compare{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:24px;overflow:hidden}
+  .compare-col{padding:42px}.compare-col:first-child{background:var(--wash)}.compare-col:last-child{background:var(--ink);color:#fff}
+  .compare h3{font-size:25px;margin-bottom:22px}.compare ul{list-style:none;display:flex;flex-direction:column;gap:15px}
+  .compare li{display:flex;gap:11px;font-size:15px}.compare-col:first-child li{color:var(--grey)}.compare-col:last-child li{color:#d8d8dc}
+  .compare .mark{font-weight:700}.compare-col:first-child .mark{color:#C83B32}.compare-col:last-child .mark{color:var(--blue-elec)}
+  .build-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .build-card{border:1px solid var(--line);border-radius:18px;padding:28px;background:#fff}.build-card .ic{font-size:25px;margin-bottom:17px}.build-card h3{font-size:19px;margin-bottom:9px}.build-card p{font-size:14.5px;color:var(--grey)}
+  .process{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+  .process-step{background:#fff;padding:30px 24px;min-height:210px}.process-step .num{font-size:12px;color:var(--blue);font-weight:700;margin-bottom:35px}.process-step h3{font-size:18px;margin-bottom:9px}.process-step p{font-size:14px;color:var(--grey)}
+  @media(max-width:900px){.crm-hero-grid,.compare{grid-template-columns:1fr}.problem-grid{grid-template-columns:1fr}.build-grid{grid-template-columns:1fr}.process{grid-template-columns:1fr 1fr}.ui-shell{transform:none}}
+  @media(max-width:520px){.process{grid-template-columns:1fr}.compare-col{padding:28px}.ui-body{grid-template-columns:56px 1fr}.ui-kpis{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="brand"><svg width="360" height="72" viewBox="0 0 360 72" xmlns="http://www.w3.org/2000/svg"><title>SE7N SYSTEMS</title><text x="0" y="50" font-family="Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="42" font-weight="800" letter-spacing="0.5"><tspan fill="#1D1D1F">SE</tspan><tspan fill="#1F8BFF">7</tspan><tspan fill="#1D1D1F">N </tspan><tspan fill="#1F8BFF">SYSTEMS</tspan></text></svg></a>
+    <nav class="navlinks">
+      <a href="methode.html" data-fr="Méthode" data-en="Method">Méthode</a>
+      <a href="crm-sur-mesure.html" class="active" data-fr="CRM sur mesure" data-en="Custom CRM">CRM sur mesure</a>
+      <a href="secteurs.html" data-fr="Secteurs" data-en="Industries">Secteurs</a>
+      <a href="cas-clients.html" data-fr="Cas clients" data-en="Case studies">Cas clients</a>
+      <a href="pourquoi.html" data-fr="Pourquoi nous" data-en="Why us">Pourquoi nous</a>
+      <a href="blog.html">Blog</a>
+    </nav>
+    <div class="navright"><div class="langswitch"><button data-lang="fr" class="active">FR</button><button data-lang="en">EN</button></div><a href="contact.html" class="btn" data-fr="Parler de mon projet" data-en="Discuss my project">Parler de mon projet</a><button class="menutog" onclick="var n=document.querySelector('.navlinks');n.style.display=n.style.display==='flex'?'none':'flex'">☰</button></div>
+  </div>
+</header>
+
+<main>
+<section class="crm-hero">
+  <div class="wrap crm-hero-grid">
+    <div>
+      <span class="pill"><span class="d"></span><span data-fr="CRM · Automatisation · Optimisation du funnel" data-en="CRM · Automation · Funnel optimization">CRM · Automatisation · Optimisation du funnel</span></span>
+      <h1 class="display"><span data-fr="Votre CRM." data-en="Your CRM.">Votre CRM.</span> <span class="blue" data-fr="Construit pour vous." data-en="Built around you.">Construit pour vous.</span></h1>
+      <p class="lead" data-fr="Une alternative sur mesure aux CRM complexes et coûteux. Nous construisons un système rapide, simple et évolutif autour de votre façon de vendre — avec uniquement les fonctionnalités dont votre équipe a réellement besoin." data-en="A custom alternative to complex, expensive CRMs. We build a fast, simple and scalable system around the way you sell — with only the features your team actually needs.">Une alternative sur mesure aux CRM complexes et coûteux. Nous construisons un système rapide, simple et évolutif autour de votre façon de vendre — avec uniquement les fonctionnalités dont votre équipe a réellement besoin.</p>
+      <div class="crm-actions"><a href="contact.html" class="btn lg" data-fr="Construire mon CRM →" data-en="Build my CRM →">Construire mon CRM →</a><a href="#fonctionnalites" class="btn ghost lg" data-fr="Voir les possibilités" data-en="Explore the possibilities">Voir les possibilités</a></div>
+      <p class="crm-note" data-fr="Vous gardez vos campagnes, votre agence ou votre équipe actuelle. Nous construisons la couche qui relie et pilote tout." data-en="Keep your current campaigns, agency or in-house team. We build the layer that connects and manages everything.">Vous gardez vos campagnes, votre agence ou votre équipe actuelle. Nous construisons la couche qui relie et pilote tout.</p>
+    </div>
+    <div class="ui-shell" aria-label="Aperçu d'un CRM sur mesure">
+      <div class="ui-head"><div class="ui-dots"><i></i><i></i><i></i></div><span>workspace.sevnsystems.com</span></div>
+      <div class="ui-body"><div class="ui-side"><i></i><i></i><i></i><i></i><i></i></div><div class="ui-main">
+        <h4 data-fr="Pilotage commercial" data-en="Sales overview">Pilotage commercial</h4>
+        <div class="ui-kpis"><div class="ui-kpi"><b>128</b><small data-fr="Opportunités" data-en="Opportunities">Opportunités</small></div><div class="ui-kpi"><b>34</b><small data-fr="Rendez-vous" data-en="Appointments">Rendez-vous</small></div><div class="ui-kpi"><b>27%</b><small data-fr="Conversion" data-en="Conversion">Conversion</small></div></div>
+        <div class="ui-lead"><div><b>Anna Martin</b><small data-fr="Demande qualifiée · Aujourd’hui" data-en="Qualified enquiry · Today">Demande qualifiée · Aujourd’hui</small></div><span class="ui-status" data-fr="À contacter" data-en="To contact">À contacter</span></div>
+        <div class="ui-lead"><div><b>David Robert</b><small data-fr="Rendez-vous · 14:30" data-en="Appointment · 2:30 PM">Rendez-vous · 14:30</small></div><span class="ui-status" data-fr="Confirmé" data-en="Confirmed">Confirmé</span></div>
+        <div class="ui-lead"><div><b>Sarah Klein</b><small data-fr="Devis envoyé · Hier" data-en="Quote sent · Yesterday">Devis envoyé · Hier</small></div><span class="ui-status" data-fr="Relance auto" data-en="Auto follow-up">Relance auto</span></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="shead"><span class="kick" data-fr="Le problème" data-en="The problem">Le problème</span><h2 class="h2" data-fr="Votre entreprise ne devrait pas travailler pour son logiciel." data-en="Your business should not have to work around its software.">Votre entreprise ne devrait pas travailler pour son logiciel.</h2><p class="lead" data-fr="Les outils génériques deviennent vite chers, lourds et difficiles à faire adopter. Votre système doit suivre votre organisation — pas vous imposer la sienne." data-en="Generic tools quickly become expensive, cumbersome and hard to adopt. Your system should follow your organization — not impose its own.">Les outils génériques deviennent vite chers, lourds et difficiles à faire adopter. Votre système doit suivre votre organisation — pas vous imposer la sienne.</p></div>
+    <div class="problem-grid">
+      <div class="problem"><div class="n">01</div><h3 data-fr="Trop d’outils" data-en="Too many tools">Trop d’outils</h3><p data-fr="Prospects, rendez-vous, devis et relances sont répartis entre plusieurs logiciels qui communiquent mal." data-en="Leads, appointments, quotes and follow-ups are scattered across tools that barely communicate.">Prospects, rendez-vous, devis et relances sont répartis entre plusieurs logiciels qui communiquent mal.</p></div>
+      <div class="problem"><div class="n">02</div><h3 data-fr="Trop de complexité" data-en="Too much complexity">Trop de complexité</h3><p data-fr="L’équipe contourne le CRM, revient aux tableurs et perd du temps à saisir les mêmes informations." data-en="Your team works around the CRM, returns to spreadsheets and wastes time entering the same data.">L’équipe contourne le CRM, revient aux tableurs et perd du temps à saisir les mêmes informations.</p></div>
+      <div class="problem"><div class="n">03</div><h3 data-fr="Trop de coûts inutiles" data-en="Too much unnecessary cost">Trop de coûts inutiles</h3><p data-fr="Vous payez par utilisateur, par module et par intégration pour une plateforme dont vous n’exploitez qu’une fraction." data-en="You pay per user, module and integration for a platform your business only partly uses.">Vous payez par utilisateur, par module et par intégration pour une plateforme dont vous n’exploitez qu’une fraction.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sectors">
+  <div class="wrap">
+    <div class="compare">
+      <div class="compare-col"><span class="kick" data-fr="CRM standard" data-en="Off-the-shelf CRM">CRM standard</span><h3 data-fr="Votre entreprise s’adapte à l’outil" data-en="Your business adapts to the tool">Votre entreprise s’adapte à l’outil</h3><ul><li><span class="mark">×</span><span data-fr="Fonctionnalités et écrans inutiles" data-en="Unused features and screens">Fonctionnalités et écrans inutiles</span></li><li><span class="mark">×</span><span data-fr="Abonnements qui augmentent avec l’équipe" data-en="Subscriptions that grow with your team">Abonnements qui augmentent avec l’équipe</span></li><li><span class="mark">×</span><span data-fr="Processus rigides et adoption difficile" data-en="Rigid processes and difficult adoption">Processus rigides et adoption difficile</span></li><li><span class="mark">×</span><span data-fr="Données dispersées entre plusieurs outils" data-en="Data scattered across multiple tools">Données dispersées entre plusieurs outils</span></li></ul></div>
+      <div class="compare-col"><span class="kick" data-fr="Système SEVN" data-en="SEVN system">Système SEVN</span><h3 data-fr="L’outil s’adapte à votre entreprise" data-en="The tool adapts to your business">L’outil s’adapte à votre entreprise</h3><ul><li><span class="mark">✓</span><span data-fr="Uniquement les modules utiles" data-en="Only the modules you need">Uniquement les modules utiles</span></li><li><span class="mark">✓</span><span data-fr="Interface simple conçue pour vos équipes" data-en="A simple interface designed for your team">Interface simple conçue pour vos équipes</span></li><li><span class="mark">✓</span><span data-fr="Automatisations selon vos propres règles" data-en="Automations based on your own rules">Automatisations selon vos propres règles</span></li><li><span class="mark">✓</span><span data-fr="Un système adaptable qui évolue avec vous" data-en="An adaptable system that grows with you">Un système adaptable qui évolue avec vous</span></li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="fonctionnalites">
+  <div class="wrap">
+    <div class="shead"><span class="kick" data-fr="Construit autour de vous" data-en="Built around you">Construit autour de vous</span><h2 class="h2" data-fr="Un seul système pour gérer tout votre parcours commercial." data-en="One system to manage your entire sales journey.">Un seul système pour gérer tout votre parcours commercial.</h2><p class="lead" data-fr="Chaque projet commence par vos besoins réels. Nous sélectionnons ensuite les modules, les automatisations et les connexions qui simplifient réellement votre activité." data-en="Every project starts with your real needs. We then select the modules, automations and connections that genuinely simplify your operations.">Chaque projet commence par vos besoins réels. Nous sélectionnons ensuite les modules, les automatisations et les connexions qui simplifient réellement votre activité.</p></div>
+    <div class="build-grid">
+      <div class="build-card"><div class="ic">◎</div><h3 data-fr="Pipeline commercial personnalisé" data-en="Custom sales pipeline">Pipeline commercial personnalisé</h3><p data-fr="Étapes, statuts, responsables, priorités et vues adaptés exactement à votre cycle de vente." data-en="Stages, statuses, owners, priorities and views tailored exactly to your sales cycle.">Étapes, statuts, responsables, priorités et vues adaptés exactement à votre cycle de vente.</p></div>
+      <div class="build-card"><div class="ic">⚡</div><h3 data-fr="Automatisations intelligentes" data-en="Smart automations">Automatisations intelligentes</h3><p data-fr="Attribution des leads, notifications, rappels, emails, SMS et tâches déclenchés au bon moment." data-en="Lead assignment, notifications, reminders, emails, texts and tasks triggered at the right time.">Attribution des leads, notifications, rappels, emails, SMS et tâches déclenchés au bon moment.</p></div>
+      <div class="build-card"><div class="ic">↗</div><h3 data-fr="Toutes vos sources connectées" data-en="Every source connected">Toutes vos sources connectées</h3><p data-fr="Meta, Google, TikTok, formulaires, site, téléphone ou partenaires : chaque opportunité arrive au même endroit." data-en="Meta, Google, TikTok, forms, website, phone or partners: every opportunity lands in one place.">Meta, Google, TikTok, formulaires, site, téléphone ou partenaires : chaque opportunité arrive au même endroit.</p></div>
+      <div class="build-card"><div class="ic">▦</div><h3 data-fr="Tableaux de bord utiles" data-en="Useful dashboards">Tableaux de bord utiles</h3><p data-fr="Suivez les opportunités, les rendez-vous, les ventes, les sources et le ROI sans reconstruire vos chiffres à la main." data-en="Track opportunities, appointments, sales, sources and ROI without rebuilding your numbers manually.">Suivez les opportunités, les rendez-vous, les ventes, les sources et le ROI sans reconstruire vos chiffres à la main.</p></div>
+      <div class="build-card"><div class="ic">◉</div><h3 data-fr="Agenda et rendez-vous" data-en="Scheduling and appointments">Agenda et rendez-vous</h3><p data-fr="Prise de rendez-vous, confirmations, rappels et historique intégrés directement au parcours client." data-en="Booking, confirmations, reminders and history integrated directly into the customer journey.">Prise de rendez-vous, confirmations, rappels et historique intégrés directement au parcours client.</p></div>
+      <div class="build-card"><div class="ic">⌘</div><h3 data-fr="Intégrations sur mesure" data-en="Custom integrations">Intégrations sur mesure</h3><p data-fr="Connectez les logiciels que vous souhaitez conserver et supprimez les doubles saisies entre vos équipes." data-en="Connect the software you want to keep and eliminate duplicate data entry across teams.">Connectez les logiciels que vous souhaitez conserver et supprimez les doubles saisies entre vos équipes.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sectors">
+  <div class="wrap">
+    <div class="shead"><span class="kick" data-fr="Notre méthode" data-en="Our process">Notre méthode</span><h2 class="h2" data-fr="De vos processus actuels à un système prêt à utiliser." data-en="From your current processes to a system ready to use.">De vos processus actuels à un système prêt à utiliser.</h2></div>
+    <div class="process">
+      <div class="process-step"><div class="num">01 — AUDIT</div><h3 data-fr="Comprendre" data-en="Understand">Comprendre</h3><p data-fr="Nous cartographions vos outils, votre funnel et le quotidien de vos équipes." data-en="We map your tools, funnel and your team’s day-to-day work.">Nous cartographions vos outils, votre funnel et le quotidien de vos équipes.</p></div>
+      <div class="process-step"><div class="num">02 — DESIGN</div><h3 data-fr="Structurer" data-en="Structure">Structurer</h3><p data-fr="Nous définissons les modules, les données et les automatisations nécessaires." data-en="We define the modules, data and automations you need.">Nous définissons les modules, les données et les automatisations nécessaires.</p></div>
+      <div class="process-step"><div class="num">03 — BUILD</div><h3 data-fr="Construire" data-en="Build">Construire</h3><p data-fr="Nous développons, connectons et testons votre environnement sur mesure." data-en="We build, connect and test your custom environment.">Nous développons, connectons et testons votre environnement sur mesure.</p></div>
+      <div class="process-step"><div class="num">04 — SCALE</div><h3 data-fr="Faire évoluer" data-en="Evolve">Faire évoluer</h3><p data-fr="Le système s’enrichit avec votre activité, vos équipes et vos nouveaux besoins." data-en="The system grows with your business, team and new requirements.">Le système s’enrichit avec votre activité, vos équipes et vos nouveaux besoins.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap"><div class="shead"><span class="kick">FAQ</span><h2 class="h2" data-fr="Les questions avant de construire votre CRM" data-en="Questions before building your CRM">Les questions avant de construire votre CRM</h2></div><div class="faq">
+    <details class="qa"><summary data-fr="Est-ce vraiment une alternative à HubSpot ?" data-en="Is this really an alternative to HubSpot?">Est-ce vraiment une alternative à HubSpot ?</summary><p data-fr="Oui, si votre objectif est de centraliser et automatiser votre propre processus commercial sans avoir besoin de toute la suite HubSpot. Nous ne copions pas chaque fonction : nous construisons celles qui sont réellement utiles à votre entreprise." data-en="Yes, if your goal is to centralize and automate your own sales process without needing the entire HubSpot suite. We do not copy every feature: we build the ones your business actually needs.">Oui, si votre objectif est de centraliser et automatiser votre propre processus commercial sans avoir besoin de toute la suite HubSpot. Nous ne copions pas chaque fonction : nous construisons celles qui sont réellement utiles à votre entreprise.</p></details>
+    <details class="qa"><summary data-fr="Puis-je conserver mon agence ou mon media buyer ?" data-en="Can I keep my agency or media buyer?">Puis-je conserver mon agence ou mon media buyer ?</summary><p data-fr="Bien sûr. Votre CRM peut recevoir les prospects de vos campagnes actuelles, quelle que soit la personne qui les gère. SEVN peut aussi prendre en charge Meta, Google ou TikTok si vous souhaitez centraliser l’ensemble." data-en="Of course. Your CRM can receive leads from your current campaigns, whoever manages them. SEVN can also manage Meta, Google or TikTok if you want one connected partner.">Bien sûr. Votre CRM peut recevoir les prospects de vos campagnes actuelles, quelle que soit la personne qui les gère. SEVN peut aussi prendre en charge Meta, Google ou TikTok si vous souhaitez centraliser l’ensemble.</p></details>
+    <details class="qa"><summary data-fr="Est-ce que le système peut évoluer ?" data-en="Can the system evolve?">Est-ce que le système peut évoluer ?</summary><p data-fr="Oui. Nous pouvons ajouter des utilisateurs, modules, règles, intégrations et tableaux de bord au fur et à mesure de vos besoins." data-en="Yes. We can add users, modules, rules, integrations and dashboards as your needs grow.">Oui. Nous pouvons ajouter des utilisateurs, modules, règles, intégrations et tableaux de bord au fur et à mesure de vos besoins.</p></details>
+    <details class="qa"><summary data-fr="Combien coûte un CRM sur mesure ?" data-en="How much does a custom CRM cost?">Combien coûte un CRM sur mesure ?</summary><p data-fr="Le prix dépend du nombre de modules, des automatisations et des intégrations. Après un premier audit, nous proposons un périmètre clair : frais de conception et de mise en place, puis maintenance ou évolutions selon vos besoins." data-en="Pricing depends on the number of modules, automations and integrations. After an initial audit, we provide a clear scope: design and setup fees, followed by maintenance or upgrades based on your needs.">Le prix dépend du nombre de modules, des automatisations et des intégrations. Après un premier audit, nous proposons un périmètre clair : frais de conception et de mise en place, puis maintenance ou évolutions selon vos besoins.</p></details>
+  </div></div>
+</section>
+
+<section class="final"><div class="wrap"><div class="box"><span class="kick" data-fr="Votre système, vos règles" data-en="Your system, your rules">Votre système, vos règles</span><h2 class="h2" data-fr="Arrêtez de payer pour un CRM qui ne vous ressemble pas." data-en="Stop paying for a CRM that does not fit your business.">Arrêtez de payer pour un CRM qui ne vous ressemble pas.</h2><p data-fr="Présentez-nous votre processus actuel. Nous vous montrerons ce qui peut être simplifié, connecté et automatisé." data-en="Show us your current process. We will identify what can be simplified, connected and automated.">Présentez-nous votre processus actuel. Nous vous montrerons ce qui peut être simplifié, connecté et automatisé.</p><a href="contact.html" class="btn white lg" data-fr="Demander un audit gratuit →" data-en="Request a free audit →">Demander un audit gratuit →</a></div></div></section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="brand"><svg width="360" height="72" viewBox="0 0 360 72" xmlns="http://www.w3.org/2000/svg"><title>SE7N SYSTEMS</title><text x="0" y="50" font-family="Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="42" font-weight="800" letter-spacing="0.5"><tspan fill="#1D1D1F">SE</tspan><tspan fill="#1F8BFF">7</tspan><tspan fill="#1D1D1F">N </tspan><tspan fill="#1F8BFF">SYSTEMS</tspan></text></svg><p class="desc" data-fr="Des systèmes d’acquisition et de gestion commerciale construits sur mesure." data-en="Custom-built acquisition and sales operations systems.">Des systèmes d’acquisition et de gestion commerciale construits sur mesure.</p></div>
+    <div><h5 data-fr="Solutions" data-en="Solutions">Solutions</h5><a href="crm-sur-mesure.html" data-fr="CRM sur mesure" data-en="Custom CRM">CRM sur mesure</a><a href="methode.html" data-fr="La méthode" data-en="The method">La méthode</a><a href="secteurs.html" data-fr="Secteurs" data-en="Industries">Secteurs</a><a href="cas-clients.html" data-fr="Cas clients" data-en="Case studies">Cas clients</a></div>
+    <div><h5 data-fr="Ressources" data-en="Resources">Ressources</h5><a href="blog.html">Blog</a><a href="contact.html" data-fr="Devis gratuit" data-en="Free quote">Devis gratuit</a><a href="mailto:hello@sevnsystems.com">hello@sevnsystems.com</a></div>
+    <div><h5 data-fr="Légal" data-en="Legal">Légal</h5><a href="#" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a><a href="#" data-fr="Confidentialité" data-en="Privacy">Confidentialité</a><a href="#" data-fr="CGV" data-en="Terms">CGV</a></div>
+  </div>
+  <div class="foot-bot"><span>© 2026 Sevn Systems</span><span>sevnsystems.com</span></div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
