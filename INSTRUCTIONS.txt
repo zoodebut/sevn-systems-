@@ -1,0 +1,26 @@
+SEVN SYSTEMS — MISE À JOUR CRM
+
+Six fichiers sont nécessaires :
+
+1. index.html
+   Remplace le fichier index.html actuel à la racine du dépôt sevn-systems-.
+
+2. crm-sur-mesure.html
+   Ajoute ce nouveau fichier à la racine du même dépôt, au même niveau que index.html.
+
+3. script.js
+   Remplace le fichier script.js actuel. Il gère la promesse de rapidité, les mentions RGPD sous les formulaires et les liens juridiques sur toutes les pages.
+
+4. mentions-legales.html
+   Ajoute cette nouvelle page à la racine du dépôt.
+
+5. confidentialite.html
+   Ajoute cette nouvelle page à la racine du dépôt.
+
+6. cgv.html
+   Ajoute cette nouvelle page à la racine du dépôt.
+
+Ne modifie pas style.css.
+Railway redéploiera automatiquement après le commit GitHub.
+
+La nouvelle page fonctionne en français et en anglais avec le sélecteur FR/EN existant.
